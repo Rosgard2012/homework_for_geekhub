@@ -5,6 +5,9 @@
 group_of_values = [1, 2, 'u', 'a', 4, True] 
 user_input = input("Enter values: ")
 
+try:
+	user_input = int(user_input)
+
 except ValueError:
 	if user_input == 'True':
 		user_input = True
