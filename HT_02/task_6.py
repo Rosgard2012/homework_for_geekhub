@@ -4,6 +4,14 @@
 
 group_of_values = [1, 2, 'u', 'a', 4, True] 
 user_input = input("Enter values: ")
+
+except ValueError:
+	if user_input == 'True':
+		user_input = True
+	elif user_input == 'False':
+		user_input = False
+
+
 if user_input in group_of_values:
     print("True")
 else:
