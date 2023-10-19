@@ -2,4 +2,4 @@
 
 decimal_number = int(input("Enter a decimal number: "))
 hexadecimal_number = hex(decimal_number)
-print("Hexadecimal numbers: ". hexadecimal_number)
+print(f'Hexadecimal number {hexadecimal_number[2:]}')
