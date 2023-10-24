@@ -1,17 +1,12 @@
 '''6. Write a script to get the maximum and minimum value in a dictionary.'''
 
-my_dict = {'a': 9, 'b': 'Vasyl', 'c': [3, 7, 4], 'd': {'x': 10, 'y': 20,'z': 30}, 'e': 115}
-
-def new_key(value):
-    if isinstance(value, str):
-        return (0, value)
-    if isinstance(value, (list, dict)):
-        return len(str(value))
-    return value
+my_dict = {'a': 9, 'b': 'Vasyl', 'c': [3, 7, 4], 'e': 115, 'z': 1, 'w': 0, 't': 333}
 
 
-max_value = max(my_dict.values(), key=new_key)
-min_value = min(my_dict.values(), key=new_key)
+values = list(filter(lambda value: type(value) in (int, float), my_dict.values()))
+
+min_value = min(values, default=0)
+max_value = max(values, default=0)
 
 
 print(f"Max value:    {max_value}")
@@ -24,4 +19,6 @@ print(max_k)
 
 print(max_v)
 # 100
-https://note.nkmk.me/en/python-dict-value-max-min/'''
+https://note.nkmk.me/en/python-dict-value-max-min/
+https://realpython.com/python-min-and-max/
+'''
