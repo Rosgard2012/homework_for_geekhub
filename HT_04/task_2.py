@@ -3,7 +3,9 @@ Write a Python program that takes an integer as input and raises the NegativeVal
 Handle this custom exception with a try/except block and display an error message."""
 
 class NegativeValueError(Exception):
-    pass
+    def __init__(self, age):
+        self.age = age
+        super().__init__()
 
 try:
     num = int(input("Enter number: "))
