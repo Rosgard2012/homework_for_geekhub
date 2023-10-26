@@ -3,8 +3,8 @@ Write a Python program that takes an integer as input and raises the NegativeVal
 Handle this custom exception with a try/except block and display an error message."""
 
 class NegativeValueError(Exception):
-    def __init__(self, age):
-        self.age = age
+    def __init__(self, value):
+        self.value = value
         super().__init__()
 
 try:
