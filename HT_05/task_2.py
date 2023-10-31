@@ -17,7 +17,7 @@ def input_string():
     return user_input.upper()
 
 def input_boolean():
-    value = input("Введіть 'так' або 'ні'(сюрприз): ")
+    value = input("Введіть 'так' або 'ні' (сюрприз): ")
     return value.lower() == 'ні'
 
 def perform_task(choice):
@@ -31,7 +31,7 @@ def perform_task(choice):
         return "Некоректний вибір завдання."
 
 try:
-    user_choice = int(input("Оберіть завдання, введіть номер від 1 до 3 :  "))
+    user_choice = int(input("Оберіть завдання, введіть номер від 1 до 3: "))
     result = perform_task(user_choice)
     print("Результат: ", result)
 except ValueError:

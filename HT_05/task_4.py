@@ -30,5 +30,6 @@ def process_string(input_string):
         print(f"Модифікований рядок: {modified_string}")
 
 
-input_string = input("Введіть рандомний рядок чисел :  ")
+input_string = input("Введіть рандомний рядок чисел: ")
 process_string(input_string)
+

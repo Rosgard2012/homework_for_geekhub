@@ -6,29 +6,25 @@
 
 
 def calculator(num1, operator, num2):
-    if operator == '+':
-        return num1 + num2
-    elif operator == '-':
-        return num1 - num2
-    elif operator == '*':
-        return num1 * num2
-    elif operator == '/':
-        try:
+    try:
+        if operator == '+':
+            return num1 + num2
+        elif operator == '-':
+            return num1 - num2
+        elif operator == '*':
+            return num1 * num2
+        elif operator == '/':
             return num1 / num2
-        except ZeroDivisionError:
-            return "Ділення на нуль неможливе!"
-    elif operator == '%':
-        return num1 % num2
-    elif operator == '//':
-        try:
+        elif operator == '%':
+            return num1 % num2
+        elif operator == '//':
             return num1 // num2
-        except ZeroDivisionError:
-            return "Ділення на нуль неможливе!"
-    elif operator == '**':
-        return num1 ** num2
-    else:
-        return "Неправильний оператор. Використовуйте: +, -, *, /, %, //, **"
-
+        elif operator == '**':
+            return num1 ** num2
+        else:
+            return "Неправильний оператор. Використовуйте: +, -, *, /, %, //, **"
+    except ZeroDivisionError:
+        return "Ділення на нуль неможливе!"
 
 try:
     num1 = float(input("Введіть перше число: "))

@@ -15,10 +15,9 @@ def compare_numbers(x, y):
     else:
         print("x дорівнює y")
 
-
 try:
     x = float(input("Введіть значення x (число): "))
-    y = float(input("Введіть значення y (число):  "))
+    y = float(input("Введіть значення y (число): "))
 except ValueError:
     print('Ви ввели не числа!')
 else:
