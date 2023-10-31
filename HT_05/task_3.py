@@ -9,11 +9,9 @@
 
 def compare_numbers(x, y):
     if x > y:
-        z = x - y
-        print(f"x більше, ніж y на {z}")
+        print(f"x більше, ніж y на {x - y}")
     elif x < y:
-        z = y - x
-        print(f"y більше, ніж x на {z}")
+        print(f"y більше, ніж x на {y - x}")
     else:
         print("x дорівнює y")
 
