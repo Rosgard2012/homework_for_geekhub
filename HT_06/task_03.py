@@ -15,6 +15,7 @@ def is_prime(number):
             return False
     return True
 
+
 number_to_check = int(input("Введіть число для перевірки: "))
 if is_prime(number_to_check):
     print(f"{number_to_check} є простим числом.")
