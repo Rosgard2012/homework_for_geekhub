@@ -16,6 +16,7 @@ def bank(a, years, percents=10):
     print(f"Сума на рахунку через {years} років: {total_amount}")
     return total_amount
 
+
 deposit = float(input("Введіть розмір початкового вкладу: "))
 period = int(input("Введіть тривалість вкладу у роках: "))
 rate_input = (input("Введіть відсоткову ставку (default 10%): "))
@@ -26,4 +27,3 @@ else:
     rate = float(rate_input)
 
 result = bank(deposit, period, rate)
-
