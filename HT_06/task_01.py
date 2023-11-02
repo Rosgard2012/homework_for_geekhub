@@ -6,11 +6,13 @@ def square(side):
     perimeter = 4 * side
     area = side ** 2
     diagonal = round(side * (2 ** 0.5), 2)
-    return perimeter, area, diagonal
+    return (perimeter, area, diagonal)
 
-side_length = input('Введіть сторону квадрату: ')
-perimeter, area, diagonal = square(side_length)
-print(f"Периметр: {perimeter}, Площа: {area}, Діагональ: {diagonal}")
+side_length = float(input("Введіть довжину сторони квадрата: "))
+
+result = square(side_length)
+print(f"Периметр: {result[0]}, Площа: {result[1]}, Діагональ: {result[2]}")
+
 
 
 
