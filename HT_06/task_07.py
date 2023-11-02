@@ -22,6 +22,3 @@ def count_elements(lst):
 
 input_list = [1, 1, 'foo', [1, 2], True, 'foo', 1, [1, 2]]
 count_elements(input_list)
-
-input_list2 = [1, 'apple', 'banana', 1, 'apple', 'cherry', 2, 2, 'banana', 'cherry', 'apple', 1]
-count_elements(input_list2)
