@@ -23,12 +23,10 @@ def cyclic_shift(lst, shift):
 
 lst1 = [1, 2, 3, 4, 5]
 shift1 = 1
-shift1 = 3
 result1 = cyclic_shift(lst1, shift1)
 print(result1)
 
 lst2 = [1, 2, 3, 4, 5]
 shift2 = -2
-shift2 = -3
 result2 = cyclic_shift(lst2, shift2)
 print(result2)
