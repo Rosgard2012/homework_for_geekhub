@@ -2,15 +2,14 @@
  і виводить всі числа Фібоначчі, що не перевищують його."""
 
 
-def fibonacci(number):
+def fibonacci(num):
     x, y = 0, 1
-    while x <= number:
+    while x <= num:
         print(x)
         x, y = y, x + y
 
 
-number = int(input("Введіть число: "))
+num = int(input("Введіть число: "))
 
-print("Числа Фібоначчі, що не перевищують", number, ":")
-fibonacci(number)
-
+print("Числа Фібоначчі, що не перевищують", num, ":")
+fibonacci(num)
