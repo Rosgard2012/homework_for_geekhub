@@ -8,13 +8,17 @@
 def is_prime(number):
     if number <= 1:
         return False
+
     if number <= 3:
         return True
+
     if number % 2 == 0 or number % 3 == 0:
         return False
+
     for i in range(5, int(number**0.5) + 1, 6):
         if number % i == 0 or number % (i + 2) == 0:
             return False
+
     return True
 
 
@@ -33,4 +37,5 @@ end_range = int(input("Введіть кінець діапазону: "))
 prime_numbers = prime_list(start_range, end_range)
 
 if prime_numbers:
-    print(f"Прості числа у діапазоні від {start_range} до {end_range}: {prime_numbers}")
+    print(f"Прості числа у діапазоні від {start_range} "
+          f"до {end_range}: {prime_numbers}")
