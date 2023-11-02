@@ -16,7 +16,8 @@ def count_elements(lst):
         else:
             count_temp[key] = 1
 
-    result = ", ".join(f"{key} -> {value}" for key, value in count_temp.items())
+    result = ", ".join(f"{key} -> {value}"
+                       for key, value in count_temp.items())
     print(result)
 
 
