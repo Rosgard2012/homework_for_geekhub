@@ -8,7 +8,7 @@
    fnc([1, 2, 3, 4, 5], shift=-2) --> [3, 4, 5, 1, 2]"""
 
 
-def cyclic_shift(lst, shift):
+def cyclic_shift1(lst, shift):
     if not lst:
         return lst
     shift = shift % len(lst)
@@ -19,6 +19,10 @@ def cyclic_shift(lst, shift):
         return lst[-shift:] + lst[:-shift]
     else:
         return lst[-shift:] + lst[:-shift]
+
+
+def cyclic_shift(lst, shift):
+    return lst[-shift % len(lst):] + lst[:-shift % len(lst)]
 
 
 lst1 = [1, 2, 3, 4, 5]
