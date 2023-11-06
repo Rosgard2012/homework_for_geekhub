@@ -8,18 +8,18 @@
 
 
 def count_elements(lst):
-    count_temp = {}
-    for element in lst:
-        key = element if not isinstance(element, list) else str(element)
-        if key in count_temp:
-            count_temp[key] += 1
+    counts = {}
+    for item in lst:
+        key = str(item)
+        if key in counts:
+            counts[key] += 1
         else:
-            count_temp[key] = 1
+            counts[key] = 1
+    result = []
+    for item, count in counts.items():
+        result.append(f"{item} -> {count}")
+    return ", ".join(result)
 
-    result = ", ".join(f"{key} -> {value}"
-                       for key, value in count_temp.items())
-    print(result)
 
-
-input_list = [1, 1, 'foo', [1, 2], True, 'foo', 1, [1, 2]]
-count_elements(input_list)
+input_list = [1, 1, 'foo', [1, 2], 1, [1, 2], {'a': 1}, True, False, {1, 2}]
+print(count_elements(input_list))
