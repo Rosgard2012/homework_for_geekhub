@@ -9,8 +9,12 @@
         якщо silent == False -породжується виключення LoginException
          (його також треба створити =))
 '''
+
+
 class LoginException(Exception):
     pass
+
+
 def check_credentials(username, password, silent=False):
     users = [
         {'username': 'Vasyl', 'password': '12345'},
