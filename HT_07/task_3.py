@@ -50,8 +50,6 @@ def validate_credentials(credentials):
             print("-----")
 
 
-
-
 user_data = [
     {"username": "Vasyl", "password": "12345"},
     {"username": "Stepan", "password": "qwert"},
