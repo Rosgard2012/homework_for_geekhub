@@ -37,28 +37,30 @@ def additional_rule(username, password):
 
 def validate_credentials(credentials):
     for data in credentials:
+        username = data['username']
+        password = data['password']
         try:
-            validate_username(data[0])
-            validate_password(data[1])
-            additional_rule(data[0], data[1])
-            print(f"Name: {data[0]}\nPassword: {data[1]}\nStatus: OK")
+            validate_username(username)
+            validate_password(password)
+            additional_rule(username, password)
+            print(f"Name: {username}\nPassword: {password}\nStatus: OK")
         except ValueError as e:
-            print(f"Name: {data[0]}\nPassword: {data[1]}\nStatus: {e}")
+            print(f"Name: {username}\nPassword: {password}\nStatus: {e}")
         finally:
             print("-----")
 
 
+
+
 user_data = [
-    ["Vasyl", "12345"],
-    ["Stepan", "qwert"],
-    ["Oksana", "pss0ksana"],
-    ["Bohdan", "Bohdan567"],
-    ["Iryna", "password1"],
-    ["Mykola", "pwd2Mykola"],
-    ["Marina", "DRG122*sbword"],
-    ["Petro", "password1234"],
+    {"username": "Vasyl", "password": "12345"},
+    {"username": "Stepan", "password": "qwert"},
+    {"username": "Oksana", "password": "pss0ksana"},
+    {"username": "Bohdan", "password": "Bohdan567"},
+    {"username": "Iryna", "password": "password1"},
+    {"username": "Mykola", "password": "pwd2Mykola"},
+    {"username": "Marina", "password": "DRG122*sbword"},
+    {"username": "Petro", "password": "password1234"},
 ]
 
-
 validate_credentials(user_data)
-
