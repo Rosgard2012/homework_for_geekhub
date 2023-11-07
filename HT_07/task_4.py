@@ -61,4 +61,3 @@ def morse_code(input_string):
 print(morse_code('--. . . -.- .... ..- -...   .. ...   .... . .-. .'))
 print(morse_code('...---...'))
 print(morse_code(".... . .-.. .-.. ---   .-- --- .-. .-.. -.."))
-print(morse_code("..   .-.. . .- .-. -.   .--. -.-- - .... --- -."))
