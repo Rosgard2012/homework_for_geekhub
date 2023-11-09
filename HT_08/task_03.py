@@ -29,5 +29,5 @@ def my_range(start, stop, step=1):
         current += step
 
 
-for i in my_range(10, 100, 0):
+for i in my_range(10, 100, 4):
     print(i)

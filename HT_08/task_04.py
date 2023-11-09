@@ -13,3 +13,13 @@
    3
    1
    .......'''
+
+
+def my_generators(iterable):
+    while True:
+        for elem in iterable:
+            yield elem
+
+
+for elem in my_generators([1, 2, 3]):
+    print(elem)
