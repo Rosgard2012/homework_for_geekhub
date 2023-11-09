@@ -14,5 +14,5 @@ def array_diff(list1, list2):
     return result
 
 
-print(array_diff([1, 2], [1]))  # [2]
+print(array_diff([1, 2], [1]))
 print(array_diff([1, 2, 2, 2, 4, 3, 4], [2]))
