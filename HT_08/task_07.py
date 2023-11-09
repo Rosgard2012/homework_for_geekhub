@@ -7,3 +7,12 @@
     array_diff([1, 2], [1]) --> [2]
     array_diff([1, 2, 2, 2, 4, 3, 4], [2]) --> [1, 4, 3, 4]
 '''
+
+
+def array_diff(list1, list2):
+    result = [x for x in list1 if x not in list2]
+    return result
+
+
+print(array_diff([1, 2], [1]))  # [2]
+print(array_diff([1, 2, 2, 2, 4, 3, 4], [2]))
