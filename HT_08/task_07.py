@@ -10,7 +10,7 @@
 
 
 def array_diff(list1, list2):
-    result = [x for x in list1 if x not in list2]
+    result = [i for i in list1 if i not in list2]
     return result
 
 
