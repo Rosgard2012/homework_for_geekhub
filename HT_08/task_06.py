@@ -1,10 +1,10 @@
 '''6. Напишіть функцію,яка прймає рядок з декількох слів і повертає
 довжину найкоротшого слова. Реалізуйте обчислення за допомогою генератора.
 '''
-
+import string
 
 def shortest_word_length(sentence):
-    word_lengths = (len(word) for word in sentence.split())
+    word_lengths = (len(word.strip(string.punctuation)) for word in sentence.split())
     return min(word_lengths, default=0)
 
 
