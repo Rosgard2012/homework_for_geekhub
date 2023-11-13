@@ -18,3 +18,37 @@
    █ █ █ ░ ░ ░ ░ ░ ░ █ █ █ ░ ░ ░ ░ █ █ █    - неправильно
 
 '''
+
+
+def display_blocks(file_name, block_size):
+    try:
+        with open(file_name, 'r') as file:
+            content = file.read()
+
+            if len(content) < block_size:
+                raise ValueError("Кількість символів більша, ніж є в файлі.")
+
+            mid_point = len(content) // 2
+
+            start_mid = max(0, mid_point - block_size // 2)
+            end_mid = start_mid + block_size
+
+            print(content[:block_size], end=" ")
+            print(content[start_mid:end_mid], end=" ")
+            print(content[-block_size:], end=" ")
+
+    except FileNotFoundError:
+        print(f"Файл {file_name} не знайдено.")
+    except ValueError as ve:
+        print(f"Помилка: {ve}")
+    except Exception as e:
+        print(f"Непередбачена помилка: {e}")
+
+
+file_name = "for_task_02/test_file.txt"
+
+with open(file_name) as files:
+    print(files.read())
+
+block_size = 3
+display_blocks(file_name, block_size)
