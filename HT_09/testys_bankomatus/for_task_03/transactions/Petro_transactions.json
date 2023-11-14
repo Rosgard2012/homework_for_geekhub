@@ -1,0 +1,54 @@
+[
+  {
+    "action": "deposit",
+    "amount": 12.0
+  },
+  {
+    "action": "deposit",
+    "amount": 12.0
+  },
+  {
+    "action": "withdraw",
+    "amount": 100.2
+  },
+  {
+    "action": "withdraw",
+    "amount": 100.3
+  },
+  {
+    "action": "deposit",
+    "amount": 100.2
+  },
+  {
+    "action": "deposit",
+    "amount": 123.1
+  },
+  {
+    "action": "deposit",
+    "amount": 12.2
+  },
+  {
+    "action": "deposit",
+    "amount": 12.0
+  },
+  {
+    "action": "withdraw",
+    "amount": 412.0
+  },
+  {
+    "action": "withdraw",
+    "amount": 12.0
+  },
+  {
+    "action": "deposit",
+    "amount": 21.0
+  },
+  {
+    "action": "deposit",
+    "amount": 124.0
+  },
+  {
+    "action": "deposit",
+    "amount": 21.0
+  }
+]

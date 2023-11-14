@@ -1,40 +1,3 @@
-'''3. Програма-банкомат.
-   Використувуючи функції створити програму з наступним функціоналом:
-      - підтримка 3-4 користувачів, які валідуються парою ім'я/пароль
-      (файл <users.CSV>);
-      - кожен з користувачів має свій поточний баланс
-      (файл <{username}_balance.TXT>) та історію транзакцій
-      (файл <{username_transactions.JSON>);
-      - є можливість як вносити гроші, так і знімати їх. Обов'язкова
-      перевірка введених даних (введено цифри; знімається не більше,
-       ніж є на рахунку і т.д.).
-   Особливості реалізації:
-      - файл з балансом - оновлюється кожен раз при зміні балансу
-      (містить просто цифру з балансом);
-      - файл - транзакціями - кожна транзакція у вигляді JSON рядка
-      додається в кінець файла;
-      - файл з користувачами: тільки читається. Але якщо захочете
-      реалізувати функціонал додавання нового користувача - не стримуйте
-       себе :)
-   Особливості функціонала:
-      - за кожен функціонал відповідає окрема функція;
-      - основна функція - <start()> - буде в собі містити весь workflow
-       банкомата:
-      - на початку роботи - логін користувача (програма запитує ім'я/пароль).
-       Якщо вони неправильні - вивести повідомлення про це і закінчити роботу
-        (хочете - зробіть 3 спроби, а потім вже закінчити роботу - все на
-         ентузіазмі :))
-      - потім - елементарне меню типн:
-        Введіть дію:
-           1. Продивитись баланс
-           2. Поповнити баланс
-           3. Вихід
-      - далі - фантазія і креатив, можете розширювати функціонал, але основне
-       завдання має бути повністю реалізоване :)
-    P.S. Увага! Файли мають бути саме вказаних форматів (csv, txt, json
-     відповідно)
-    P.S.S. Добре продумайте структуру програми та функцій (edited)
-'''
 
 import csv
 import json
@@ -50,11 +13,19 @@ def load_user_data():
     return users
 
 
+def is_admin(username, password):
+    return username == "admin" and password == "admin"
+
+
 def login():
     attempts = 3
     while attempts > 0:
         username = input("Введіть ім'я: ")
         password = input("Введіть пароль: ")
+
+        if is_admin(username, password):
+            print("Ви увійшли як адміністратор.")
+            return {"username": username, "is_admin": True}
 
         users = load_user_data()
         for user in users:
@@ -73,6 +44,8 @@ def load_balance(username):
         with open(filename, 'r') as file:
             return float(file.read())
     else:
+        with open(filename, 'w') as file:
+            file.write('0.0')
         return 0.0
 
 
@@ -88,7 +61,10 @@ def load_transactions(username):
         with open(filename, 'r') as file:
             return json.load(file)
     else:
+        with open(filename, 'w') as file:
+            json.dump([], file)
         return []
+
 
 
 def save_transaction(username, transaction):
@@ -110,8 +86,7 @@ def get_float_input(prompt):
             value = float(input(prompt))
             return value
         except ValueError:
-            print("Неправильний формат введених даних. "
-                  "Будь ласка, введіть числове значення.")
+            print("Неправильний формат введених даних. Будь ласка, введіть числове значення.")
 
 
 def deposit(username):
@@ -142,6 +117,45 @@ def withdraw(username):
         print("Недостатньо коштів на рахунку.")
 
 
+def add_user():
+    new_username = input("Введіть нове ім'я користувача: ")
+    new_password = input("Введіть пароль для нового користувача: ")
+
+    users = load_user_data()
+    for user in users:
+        if user['username'] == new_username:
+            print("Користувач з таким ім'ям вже існує.")
+            return
+    with open('for_task_03/users.csv', 'a', newline='') as csvfile:
+        fieldnames = ['username', 'password']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writerow({'username': new_username, 'password': new_password})
+
+    print(f"Користувач {new_username} успішно доданий.")
+
+def delete_user():
+    username_to_delete = input("Введіть ім'я користувача, якого ви хочете видалити: ")
+
+    users = load_user_data()
+    filtered_users = [user for user in users if user['username'] != username_to_delete]
+
+    # Запис нового списку користувачів у CSV-файл
+    with open('for_task_03/users.csv', 'w', newline='') as csvfile:
+        fieldnames = ['username', 'password']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(filtered_users)
+
+    print(f"Користувач {username_to_delete} успішно видалений.")
+
+
+def view_all_balances():
+    users = load_user_data()
+    for user in users:
+        balance = load_balance(user['username'])
+        print(f"Користувач: {user['username']}, Баланс: {balance} грн")
+
+
 def start():
     user = login()
 
@@ -150,7 +164,7 @@ def start():
         print("1. Продивитись баланс")
         print("2. Поповнити баланс")
         print("3. Зняти кошти")
-        print("4. Вихід")
+        print("4. Додати користувача" if user.get("is_admin")  else "5. Видалити користувача" if user.get("is_admin") else "6. Подивитися баланс всіх користувачів" if user.get("is_admin") else "7. Вихід")
 
         choice = input("Ваш вибір: ")
 
@@ -160,7 +174,13 @@ def start():
             deposit(user['username'])
         elif choice == '3':
             withdraw(user['username'])
-        elif choice == '4':
+        elif choice == '4' and user.get("is_admin"):
+            add_user()
+        elif choice == '5' and user.get("is_admin"):
+            delete_user()
+        elif choice == '6' and user.get("is_admin"):
+            view_all_balances()
+        elif choice == '7':
             print("Дякуємо за використання нашого банкомату. До побачення!")
             break
         else:

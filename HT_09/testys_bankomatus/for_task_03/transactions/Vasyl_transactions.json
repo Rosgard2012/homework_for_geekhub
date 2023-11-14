@@ -1,0 +1,14 @@
+[
+  {
+    "action": "deposit",
+    "amount": 231.0
+  },
+  {
+    "action": "withdraw",
+    "amount": 321.0
+  },
+  {
+    "action": "deposit",
+    "amount": 123.0
+  }
+]
