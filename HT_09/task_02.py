@@ -36,6 +36,7 @@ def display_blocks(file_name, block_size):
             print(content[:block_size], end=" ")
             print(content[start_mid:end_mid], end=" ")
             print(content[-block_size:], end=" ")
+            print("\n" + "_" * (block_size * 3 + 2))
 
     except FileNotFoundError:
         print(f"Файл {file_name} не знайдено.")
