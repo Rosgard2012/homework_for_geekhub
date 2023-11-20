@@ -28,10 +28,10 @@ def login():
     print("Ви вичерпали всі спроби. До побачення!")
     exit()
 
+
 def create_new_user():
     username = input("Введіть нове ім'я користувача: ")
     password = input("Введіть пароль: ")
-
 
     conn = sqlite3.connect('bank.db')
     cursor = conn.cursor()
@@ -68,36 +68,72 @@ def save_transaction(username, transaction_type, amount):
     cursor.execute('SELECT id FROM users WHERE username = ?', (username,))
     user_id = cursor.fetchone()[0]
 
-    cursor.execute('INSERT INTO transactions (user_id, action, amount) VALUES (?, ?, ?)', (user_id, transaction_type, amount))
+    cursor.execute('INSERT INTO transactions (user_id, action, amount) VALUES (?, ?, ?)',
+                   (user_id, transaction_type, amount))
     conn.commit()
 
     conn.close()
 
 
+def is_valid__amount(amount):
+    return amount % 10 == 0
+
+
+def load_atm_balance():
+    conn = sqlite3.connect('bank.db')
+    cursor = conn.cursor()
+
+    cursor.execute('SELECT * FROM banknotes')
+    notes_data = cursor.fetchone()
+
+    conn.close()
+
+    atm_balance = (notes_data[1] * 10) + (notes_data[2] * 20) + (notes_data[3] * 50) + \
+                  (notes_data[4] * 100) + (notes_data[5] * 200) + (notes_data[6] * 500) + \
+                  (notes_data[7] * 1000)
+
+    return atm_balance
+
 
 def deposit(username):
     amount = get_float_input("Введіть суму для внесення: ")
     if amount > 0:
-        balance = load_balance(username)
-        new_balance = balance + amount
-        update_balance(username, new_balance)
-        save_transaction(username, 'deposit', amount)
-        print(f"Гроші внесено успішно. Новий баланс: {new_balance} грн")
+        if is_valid__amount(amount):
+            balance = load_balance(username)
+            new_balance = balance + amount
+            update_balance(username, new_balance)
+            save_transaction(username, 'deposit', amount)
+            print(f"Гроші внесено успішно. Новий баланс: {new_balance} грн")
+        else:
+            rest = amount % 10
+            deposit_amount = amount - rest
+            balance = load_balance(username)
+            new_balance = balance + deposit_amount
+            update_balance(username, new_balance)
+            save_transaction(username, 'deposit', deposit_amount)
+            print(f"Банкомат прийняв {deposit_amount} грн. Решта {rest} грн повертається.")
     else:
         print("Введіть додатню суму.")
+
 
 def withdraw(username):
     amount = get_float_input("Введіть суму для зняття: ")
     user_balance = load_balance(username)
+    atm_balance = load_atm_balance()
 
     if amount <= 0:
         print("Введіть додатню суму.")
     elif amount > user_balance:
         print("Недостатньо коштів на рахунку.")
+    elif amount > atm_balance:
+        print("Недостатньо коштів в банкоматі.")
+    elif not is_valid__amount(amount):
+        print("Неприпустима сума для зняття. Сума повинна бути кратною 10 та не перевищувати баланс в банкоматі.")
     else:
         new_balance = user_balance - amount
         update_balance(username, new_balance)
         save_transaction(username, 'withdraw', amount)
+#        update_atm_balance_after_withdrawal(amount)
         print(f"Гроші знято успішно. Новий баланс: {new_balance} грн")
 
 
