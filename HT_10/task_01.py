@@ -75,8 +75,18 @@ def save_transaction(username, transaction_type, amount):
     conn.close()
 
 
-def is_valid__amount(amount):
-    return amount % 10 == 0
+def is_valid_amount(amount, atm_balance):
+    if amount <= 0:
+        print("Введіть додатню суму.")
+        return False
+    elif amount % 10 != 0:
+        print("Неприпустима сума для зняття. Сума повинна бути кратною 10.")
+        return False
+    elif amount > atm_balance:
+        print("Недостатньо коштів в банкоматі.")
+        return False
+    else:
+        return True
 
 
 def load_atm_balance():
@@ -98,7 +108,7 @@ def load_atm_balance():
 def deposit(username):
     amount = get_float_input("Введіть суму для внесення: ")
     if amount > 0:
-        if is_valid__amount(amount):
+        if is_valid_amount(amount):
             balance = load_balance(username)
             new_balance = balance + amount
             update_balance(username, new_balance)
@@ -121,20 +131,17 @@ def withdraw(username):
     user_balance = load_balance(username)
     atm_balance = load_atm_balance()
 
-    if amount <= 0:
-        print("Введіть додатню суму.")
-    elif amount > user_balance:
-        print("Недостатньо коштів на рахунку.")
-    elif amount > atm_balance:
-        print("Недостатньо коштів в банкоматі.")
-    elif not is_valid__amount(amount):
-        print("Неприпустима сума для зняття. Сума повинна бути кратною 10 та не перевищувати баланс в банкоматі.")
+    if is_valid_amount(amount, atm_balance):
+        if amount > user_balance:
+            print("Недостатньо коштів на рахунку.")
+        else:
+            new_balance = user_balance - amount
+            update_balance(username, new_balance)
+            save_transaction(username, 'withdraw', amount)
+            print(f"Гроші знято успішно. Новий баланс: {new_balance} грн")
+            # update_atm_balance_after_withdrawal(amount)
     else:
-        new_balance = user_balance - amount
-        update_balance(username, new_balance)
-        save_transaction(username, 'withdraw', amount)
-#        update_atm_balance_after_withdrawal(amount)
-        print(f"Гроші знято успішно. Новий баланс: {new_balance} грн")
+        print("Помилка: Неприпустима сума для зняття.")
 
 
 def is_cashier(username):
