@@ -1,4 +1,5 @@
 import sqlite3
+import re
 
 
 def load_user_data(username):
@@ -35,9 +36,26 @@ def create_new_user():
 
     conn = sqlite3.connect('bank.db')
     cursor = conn.cursor()
+    cursor.execute('SELECT * FROM users WHERE username=?', (username,))
+    existing_user = cursor.fetchone()
+
+    if existing_user:
+        print("Користувач з таким ім'ям вже існує. Спробуйте інше ім'я.")
+        conn.close()
+        return
+
+    if (len(password) < 8 or not any(char.isdigit() for char in password)
+                          or not any(char.isalpha() for char in password)
+                          or not any(char.isupper() for char in password)
+                          or not any(char.islower() for char in password)):
+        print("Пароль повинен містити мінімум 8 символів, один знак"
+              " принаймні одну цифру, одну букву верхнього та нижнього регістру.")
+        conn.close()
+        return
 
     cursor.execute('INSERT INTO users (username, password) VALUES (?, ?)', (username, password))
     conn.commit()
+    print("Новий користувач успішно створений.")
 
     conn.close()
 
@@ -108,7 +126,7 @@ def load_atm_balance():
 def deposit(username):
     amount = get_float_input("Введіть суму для внесення: ")
     if amount > 0:
-        if is_valid_amount(amount):
+        if is_valid_amount(amount, load_atm_balance()):
             balance = load_balance(username)
             new_balance = balance + amount
             update_balance(username, new_balance)
