@@ -137,13 +137,13 @@ def change_notes(username):
         return
 
     print("Змінити кількість купюр в банкоматі.")
-    notes_10 = get_int_input("Кількість купюр номіналом 10: ")
-    notes_20 = get_int_input("Кількість купюр номіналом 20: ")
-    notes_50 = get_int_input("Кількість купюр номіналом 50: ")
-    notes_100 = get_int_input("Кількість купюр номіналом 100: ")
-    notes_200 = get_int_input("Кількість купюр номіналом 200: ")
-    notes_500 = get_int_input("Кількість купюр номіналом 500: ")
-    notes_1000 = get_int_input("Кількість купюр номіналом 1000: ")
+    notes_10 = int(input("Кількість купюр номіналом 10: "))
+    notes_20 = int(input("Кількість купюр номіналом 20: "))
+    notes_50 = int(input("Кількість купюр номіналом 50: "))
+    notes_100 = int(input("Кількість купюр номіналом 100: "))
+    notes_200 = int(input("Кількість купюр номіналом 200: "))
+    notes_500 = int(input("Кількість купюр номіналом 500: "))
+    notes_1000 = int(input("Кількість купюр номіналом 1000: "))
 
     conn = sqlite3.connect('bank.db')
     cursor = conn.cursor()
