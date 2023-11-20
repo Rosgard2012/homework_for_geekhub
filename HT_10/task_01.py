@@ -100,6 +100,7 @@ def withdraw(username):
         save_transaction(username, 'withdraw', amount)
         print(f"Гроші знято успішно. Новий баланс: {new_balance} грн")
 
+
 def is_cashier(username):
     conn = sqlite3.connect('bank.db')
     cursor = conn.cursor()
@@ -109,6 +110,7 @@ def is_cashier(username):
 
     conn.close()
     return is_cashier == 1
+
 
 def manage_atm(username):
     print("Ви увійшли як інкасатор.")
@@ -131,19 +133,28 @@ def manage_atm(username):
             print("Невірний вибір. Спробуйте ще раз.")
 
 
+def get_int_input(prompt):
+    while True:
+        try:
+            value = int(input(prompt))
+            return value
+        except ValueError:
+            print("Будь ласка, введіть ціле число.")
+
+
 def change_notes(username):
     if not is_cashier(username):
         print("У вас немає прав для цієї операції.")
         return
 
     print("Змінити кількість купюр в банкоматі.")
-    notes_10 = int(input("Кількість купюр номіналом 10: "))
-    notes_20 = int(input("Кількість купюр номіналом 20: "))
-    notes_50 = int(input("Кількість купюр номіналом 50: "))
-    notes_100 = int(input("Кількість купюр номіналом 100: "))
-    notes_200 = int(input("Кількість купюр номіналом 200: "))
-    notes_500 = int(input("Кількість купюр номіналом 500: "))
-    notes_1000 = int(input("Кількість купюр номіналом 1000: "))
+    notes_10 = get_int_input("Кількість купюр номіналом 10: ")
+    notes_20 = get_int_input("Кількість купюр номіналом 20: ")
+    notes_50 = get_int_input("Кількість купюр номіналом 50: ")
+    notes_100 = get_int_input("Кількість купюр номіналом 100: ")
+    notes_200 = get_int_input("Кількість купюр номіналом 200: ")
+    notes_500 = get_int_input("Кількість купюр номіналом 500: ")
+    notes_1000 = get_int_input("Кількість купюр номіналом 1000: ")
 
     conn = sqlite3.connect('bank.db')
     cursor = conn.cursor()
@@ -208,34 +219,54 @@ def load_balance(username):
 
 
 def start():
-#    create_tables()
     conn = sqlite3.connect('bank.db')
     cursor = conn.cursor()
-    user = login()
 
-    if user[1] == 'admin' and user[2] == 'admin':
-        manage_atm(user[1])
-    else:
-        while True:
-            print("\nВведіть дію:")
-            print("1. Продивитись баланс")
-            print("2. Поповнити баланс")
-            print("3. Зняти кошти")
-            print("4. Вихід")
+    while True:
+        print("\nВведіть дію:")
+        print("1. Увійти")
+        print("2. Створити нового користувача")
+        print("3. Вихід")
 
-            choice = input("Ваш вибір: ")
+        choice = input("Ваш вибір: ")
 
-            if choice == '1':
-                view_notes(user[1])
-            elif choice == '2':
-                deposit(user[1])
-            elif choice == '3':
-                withdraw(user[1])
-            elif choice == '4':
-                print("Дякуємо за використання нашого банкомату. До побачення!")
-                break
-            else:
-                print("Невірний вибір. Спробуйте ще раз.")
+        if choice == '1':
+            user = login()
+            if user:
+                if user[1] == 'admin' and user[2] == 'admin':
+                    manage_atm(user[1])
+                else:
+                    perform_user_actions(user[1])
+        elif choice == '2':
+            create_new_user()
+        elif choice == '3':
+            print("Дякуємо за використання нашого банкомату. До побачення!")
+            break
+        else:
+            print("Невірний вибір. Спробуйте ще раз.")
+
+
+def perform_user_actions(username):
+    while True:
+        print("\nВведіть дію:")
+        print("1. Продивитись баланс")
+        print("2. Поповнити баланс")
+        print("3. Зняти кошти")
+        print("4. Вихід")
+
+        choice = input("Ваш вибір: ")
+
+        if choice == '1':
+            view_notes(username)
+        elif choice == '2':
+            deposit(username)
+        elif choice == '3':
+            withdraw(username)
+        elif choice == '4':
+            print("Дякуємо за використання нашого банкомату. До побачення!")
+            break
+        else:
+            print("Невірний вибір. Спробуйте ще раз.")
 
 
 if __name__ == "__main__":
