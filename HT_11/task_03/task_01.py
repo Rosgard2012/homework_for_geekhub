@@ -33,28 +33,29 @@ class BankSystem:
         print("Ви вичерпали всі спроби. До побачення!")
         exit()
 
-        def create_new_user(self):
-            username = input("Введіть нове ім'я користувача: ")
-            password = input("Введіть пароль: ")
+    def create_new_user(self):
+        username = input("Введіть нове ім'я користувача: ")
+        password = input("Введіть пароль: ")
 
-            self.cursor.execute('SELECT * FROM users WHERE username=?', (username,))
-            existing_user = self.cursor.fetchone()
+        self.cursor.execute('SELECT * FROM users WHERE username=?', (username,))
+        existing_user = self.cursor.fetchone()
 
-            if existing_user:
-                print("Користувач з таким ім'ям вже існує. Спробуйте інше ім'я.")
-                return
+        if existing_user:
+            print("Користувач з таким ім'ям вже існує. Спробуйте інше ім'я.")
+            return
 
-            if (len(password) < 8 or not any(char.isdigit() for char in password)
-                                  or not any(char.isalpha() for char in password)
-                                  or not any(char.isupper() for char in password)
-                                  or not any(char.islower() for char in password)):
-                print("Пароль повинен містити мінімум 8 символів, один знак"
-                      " принаймні одну цифру, одну букву верхнього та нижнього регістру.")
-                return
+        if (len(password) < 8 or not any(char.isdigit() for char in password)
+                              or not any(char.isalpha() for char in password)
+                              or not any(char.isupper() for char in password)
+                              or not any(char.islower() for char in password)):
+            print("Пароль повинен містити мінімум 8 символів, один знак"
+                  " принаймні одну цифру, одну букву верхнього та нижнього регістру.")
+            return
 
-            self.cursor.execute('INSERT INTO users (username, password) VALUES (?, ?)', (username, password))
-            self.connection.commit()
-            print("Новий користувач успішно створений.")
+        self.cursor.execute('INSERT INTO users (username, password) VALUES (?, ?)', (username, password))
+        self.connection.commit()
+        print("Новий користувач успішно створений.")
+
 
 
     def get_float_input(self, prompt):
@@ -66,17 +67,17 @@ class BankSystem:
                 print("Будь ласка, введіть коректне число.")
 
     def update_balance(self, username, new_balance):
-         self.cursor.execute('UPDATE users SET balance = ? WHERE username = ?', (new_balance, username))
-         self.conn.commit()
+        self.cursor.execute('UPDATE users SET balance = ? WHERE username = ?', (new_balance, username))
+        self.connection.commit()
 
 
     def save_transaction(self, username, transaction_type, amount):
-            self.cursor.execute('SELECT id FROM users WHERE username = ?', (username,))
-            user_id = self.cursor.fetchone()[0]
+        self.cursor.execute('SELECT id FROM users WHERE username = ?', (username,))
+        user_id = self.cursor.fetchone()[0]
 
-            self.cursor.execute('INSERT INTO transactions (user_id, action, amount) VALUES (?, ?, ?)',
+        self.cursor.execute('INSERT INTO transactions (user_id, action, amount) VALUES (?, ?, ?)',
                                 (user_id, transaction_type, amount))
-            self.conn.commit()
+        self.conn.commit()
 
 
     def is_valid_amount(self, amount, atm_balance):
@@ -200,29 +201,6 @@ class BankSystem:
             self.connection.commit()
             print("Кількість купюр в банкоматі успішно оновлено.")
 
-    def start(self):
-        while True:
-            print("\nВведіть дію:")
-            print("1. Увійти")
-            print("2. Створити нового користувача")
-            print("3. Вихід")
-
-            choice = input("Ваш вибір: ")
-
-            if choice == '1':
-                user = self.login()
-                if user:
-                    if user[1] == 'admin' and user[2] == 'admin':
-                        self.manage_atm(user[1])
-                    else:
-                        self.perform_user_actions(user[1])
-            elif choice == '2':
-                self.create_new_user()
-            elif choice == '3':
-                print("Дякуємо за використання нашого банкомату. До побачення!")
-                break
-            else:
-                print("Невірний вибір. Спробуйте ще раз.")
 
     def view_notes_ink(self, username):
         self.cursor.execute('SELECT * FROM banknotes')
@@ -265,6 +243,31 @@ class BankSystem:
             elif choice == '3':
                 self.withdraw(username)
             elif choice == '4':
+                print("Дякуємо за використання нашого банкомату. До побачення!")
+                break
+            else:
+                print("Невірний вибір. Спробуйте ще раз.")
+
+
+    def start(self):
+        while True:
+            print("\nВведіть дію:")
+            print("1. Увійти")
+            print("2. Створити нового користувача")
+            print("3. Вихід")
+
+            choice = input("Ваш вибір: ")
+
+            if choice == '1':
+                user = self.login()
+                if user:
+                    if user[1] == 'admin' and user[2] == 'admin':
+                        self.manage_atm(user[1])
+                    else:
+                        self.perform_user_actions(user[1])
+            elif choice == '2':
+                self.create_new_user()
+            elif choice == '3':
                 print("Дякуємо за використання нашого банкомату. До побачення!")
                 break
             else:
