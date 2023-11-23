@@ -65,12 +65,12 @@ class BankSystem:
             except ValueError:
                 print("Будь ласка, введіть коректне число.")
 
-        def update_balance(self, username, new_balance):
+    def update_balance(self, username, new_balance):
          self.cursor.execute('UPDATE users SET balance = ? WHERE username = ?', (new_balance, username))
          self.conn.commit()
 
 
-        def save_transaction(self, username, transaction_type, amount):
+    def save_transaction(self, username, transaction_type, amount):
             self.cursor.execute('SELECT id FROM users WHERE username = ?', (username,))
             user_id = self.cursor.fetchone()[0]
 
@@ -79,7 +79,7 @@ class BankSystem:
             self.conn.commit()
 
 
-        def is_valid_amount(self, amount, atm_balance):
+    def is_valid_amount(self, amount, atm_balance):
             if amount <= 0:
                 print("Введіть додатню суму.")
                 return False
@@ -92,7 +92,7 @@ class BankSystem:
             else:
                 return True
 
-        def load_atm_balance(self):
+    def load_atm_balance(self):
             self.cursor.execute('SELECT * FROM banknotes')
             notes_data = self.cursor.fetchone()
 
@@ -139,7 +139,7 @@ class BankSystem:
         else:
             print("Помилка: Неприпустима сума для зняття.")
 
-        def is_cashier(self, username):
+    def is_cashier(self, username):
             self.cursor.execute('SELECT is_cashier FROM users WHERE username = ?', (username,))
             is_cashier = self.cursor.fetchone()[0]
             return is_cashier == 1
@@ -164,7 +164,7 @@ class BankSystem:
             else:
                 print("Невірний вибір. Спробуйте ще раз.")
 
-        def get_int_input(self, prompt):
+    def get_int_input(self, prompt):
             while True:
                 try:
                     value = int(input(prompt))
@@ -172,7 +172,7 @@ class BankSystem:
                 except ValueError:
                     print("Будь ласка, введіть ціле число.")
 
-        def change_notes(self, username):
+    def change_notes(self, username):
             if not self.is_cashier(username):
                 print("У вас немає прав для цієї операції.")
                 return
