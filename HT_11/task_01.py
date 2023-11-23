@@ -3,7 +3,7 @@
   додавання, віднімання, множення, ділення.
 - Якщо під час створення екземпляру класу звернутися до атребута last_result
  він повинен повернути пусте значення.
-- Якщо використати один з методів - last_result повенен повернути результат
+- Якщо використати один з методів - last_result повинен повернути результат
  виконання ПОПЕРЕДНЬОГО методу.
     Example:
     last_result --> None
@@ -16,3 +16,48 @@
     ...
 - Додати документування в клас (можете почитати цю статтю:
 https://realpython.com/documenting-python-code/ )"""
+
+
+class Calc:
+    def __init__(self):
+        self.last_result = None
+        print("last_result --> None")
+
+    def add(self, x, y):
+        result = x + y
+        self.last_result = result
+        print(f"last_result --> {self.last_result}")
+        print(f"{x} + {y} = {result}")
+        return result
+
+    def subtract(self, x, y):
+        result = x - y
+        self.last_result = result
+        print(f"last_result --> {self.last_result}")
+        print(f"{x} - {y} = {result}")
+        return result
+
+    def multiply(self, x, y):
+        result = x * y
+        self.last_result = result
+        print(f"last_result --> {self.last_result}")
+        print(f"{x} * {y} = {result}")
+        return result
+
+    def divide(self, x, y):
+        result = x / y
+        self.last_result = result
+        print(f"last_result --> {self.last_result}")
+        print(f"{x} / {y} = {result}")
+        return result
+
+calc = Calc()
+calc.last_result
+calc.add(3, 5)
+calc.last_result
+calc.subtract(3, 5)
+calc.last_result
+calc.multiply(3, 5)
+calc.last_result
+calc.divide(3, 5)
+calc.last_result
