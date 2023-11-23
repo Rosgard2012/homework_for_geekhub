@@ -11,6 +11,7 @@ class BankSystem:
         self.connection = sqlite3.connect('bank.db')
         self.cursor = self.connection.cursor()
 
+
     def load_user_data(self, username):
         self.cursor.execute('SELECT * FROM users WHERE username = ?', (username,))
         user_data = self.cursor.fetchone()
@@ -32,28 +33,28 @@ class BankSystem:
         print("Ви вичерпали всі спроби. До побачення!")
         exit()
 
-    def create_new_user(self):
-        username = input("Введіть нове ім'я користувача: ")
-        password = input("Введіть пароль: ")
+        def create_new_user(self):
+            username = input("Введіть нове ім'я користувача: ")
+            password = input("Введіть пароль: ")
 
-        self.cursor.execute('SELECT * FROM users WHERE username=?', (username,))
-        existing_user = self.cursor.fetchone()
+            self.cursor.execute('SELECT * FROM users WHERE username=?', (username,))
+            existing_user = self.cursor.fetchone()
 
-        if existing_user:
-            print("Користувач з таким ім'ям вже існує. Спробуйте інше ім'я.")
-            return
+            if existing_user:
+                print("Користувач з таким ім'ям вже існує. Спробуйте інше ім'я.")
+                return
 
-        if (len(password) < 8 or not any(char.isdigit() for char in password)
-                              or not any(char.isalpha() for char in password)
-                              or not any(char.isupper() for char in password)
-                              or not any(char.islower() for char in password)):
-            print("Пароль повинен містити мінімум 8 символів, один знак"
-                  " принаймні одну цифру, одну букву верхнього та нижнього регістру.")
-            return
+            if (len(password) < 8 or not any(char.isdigit() for char in password)
+                                  or not any(char.isalpha() for char in password)
+                                  or not any(char.isupper() for char in password)
+                                  or not any(char.islower() for char in password)):
+                print("Пароль повинен містити мінімум 8 символів, один знак"
+                      " принаймні одну цифру, одну букву верхнього та нижнього регістру.")
+                return
 
-        cursor.execute('INSERT INTO users (username, password) VALUES (?, ?)', (username, password))
-        conn.commit()
-        print("Новий користувач успішно створений.")
+            self.cursor.execute('INSERT INTO users (username, password) VALUES (?, ?)', (username, password))
+            self.connection.commit()
+            print("Новий користувач успішно створений.")
 
 
     def get_float_input(self, prompt):
@@ -64,40 +65,42 @@ class BankSystem:
             except ValueError:
                 print("Будь ласка, введіть коректне число.")
 
-    def update_balance(self, username, new_balance):
-        self.cursor.execute('UPDATE users SET balance = ? WHERE username = ?', (new_balance, username))
-        self.conn.commit()
+        def update_balance(self, username, new_balance):
+         self.cursor.execute('UPDATE users SET balance = ? WHERE username = ?', (new_balance, username))
+         self.conn.commit()
 
-    def save_transaction(self, username, transaction_type, amount):
-        self.cursor.execute('SELECT id FROM users WHERE username = ?', (username,))
-        user_id = self.cursor.fetchone()[0]
 
-        self.cursor.execute('INSERT INTO transactions (user_id, action, amount) VALUES (?, ?, ?)',
-                            (user_id, transaction_type, amount))
-        self.conn.commit()
+        def save_transaction(self, username, transaction_type, amount):
+            self.cursor.execute('SELECT id FROM users WHERE username = ?', (username,))
+            user_id = self.cursor.fetchone()[0]
 
-    def is_valid_amount(self, amount, atm_balance):
-        if amount <= 0:
-            print("Введіть додатню суму.")
-            return False
-        elif amount % 10 != 0:
-            print("Неприпустима сума для зняття. Сума повинна бути кратною 10.")
-            return False
-        elif amount > atm_balance:
-            print("Недостатньо коштів в банкоматі.")
-            return False
-        else:
-            return True
+            self.cursor.execute('INSERT INTO transactions (user_id, action, amount) VALUES (?, ?, ?)',
+                                (user_id, transaction_type, amount))
+            self.conn.commit()
 
-    def load_atm_balance(self):
-        self.cursor.execute('SELECT * FROM banknotes')
-        notes_data = self.cursor.fetchone()
 
-        atm_balance = (notes_data[1] * 10) + (notes_data[2] * 20) + (notes_data[3] * 50) + \
-                      (notes_data[4] * 100) + (notes_data[5] * 200) + (notes_data[6] * 500) + \
-                      (notes_data[7] * 1000)
+        def is_valid_amount(self, amount, atm_balance):
+            if amount <= 0:
+                print("Введіть додатню суму.")
+                return False
+            elif amount % 10 != 0:
+                print("Неприпустима сума для зняття. Сума повинна бути кратною 10.")
+                return False
+            elif amount > atm_balance:
+                print("Недостатньо коштів в банкоматі.")
+                return False
+            else:
+                return True
 
-        return atm_balance
+        def load_atm_balance(self):
+            self.cursor.execute('SELECT * FROM banknotes')
+            notes_data = self.cursor.fetchone()
+
+            atm_balance = (notes_data[1] * 10) + (notes_data[2] * 20) + (notes_data[3] * 50) + \
+                          (notes_data[4] * 100) + (notes_data[5] * 200) + (notes_data[6] * 500) + \
+                          (notes_data[7] * 1000)
+
+            return atm_balance
 
     def deposit(self, username):
         amount = self.get_float_input("Введіть суму для внесення: ")
@@ -129,17 +132,17 @@ class BankSystem:
             if amount > user_balance:
                 print("Недостатньо коштів на рахунку.")
             else:
-                new_balance = user_balance - amount
-                self.update_balance(username, new_balance)
-                self.save_transaction(username, 'withdraw', amount)
-                print(f"Гроші знято успішно. Новий баланс: {new_balance} грн")
+                    new_balance = user_balance - amount
+                    self.update_balance(username, new_balance)
+                    self.save_transaction(username, 'withdraw', amount)
+                    print(f"Гроші знято успішно. Новий баланс: {new_balance} грн")
         else:
             print("Помилка: Неприпустима сума для зняття.")
 
-    def is_cashier(self, username):
-        self.cursor.execute('SELECT is_cashier FROM users WHERE username = ?', (username,))
-        is_cashier = self.cursor.fetchone()[0]
-        return is_cashier == 1
+        def is_cashier(self, username):
+            self.cursor.execute('SELECT is_cashier FROM users WHERE username = ?', (username,))
+            is_cashier = self.cursor.fetchone()[0]
+            return is_cashier == 1
 
     def manage_atm(self, username):
         print("Ви увійшли як інкасатор.")
@@ -161,41 +164,41 @@ class BankSystem:
             else:
                 print("Невірний вибір. Спробуйте ще раз.")
 
-    def get_int_input(self, prompt):
-        while True:
-            try:
-                value = int(input(prompt))
-                return value
-            except ValueError:
-                print("Будь ласка, введіть ціле число.")
+        def get_int_input(self, prompt):
+            while True:
+                try:
+                    value = int(input(prompt))
+                    return value
+                except ValueError:
+                    print("Будь ласка, введіть ціле число.")
 
-    def change_notes(self, username):
-        if not self.is_cashier(username):
-            print("У вас немає прав для цієї операції.")
-            return
+        def change_notes(self, username):
+            if not self.is_cashier(username):
+                print("У вас немає прав для цієї операції.")
+                return
 
-        print("Змінити кількість купюр в банкоматі.")
-        notes_10 = self.get_int_input("Кількість купюр номіналом 10: ")
-        notes_20 = self.get_int_input("Кількість купюр номіналом 20: ")
-        notes_50 = self.get_int_input("Кількість купюр номіналом 50: ")
-        notes_100 = self.get_int_input("Кількість купюр номіналом 100: ")
-        notes_200 = self.get_int_input("Кількість купюр номіналом 200: ")
-        notes_500 = self.get_int_input("Кількість купюр номіналом 500: ")
-        notes_1000 = self.get_int_input("Кількість купюр номіналом 1000: ")
+            print("Змінити кількість купюр в банкоматі.")
+            notes_10 = self.get_int_input("Кількість купюр номіналом 10: ")
+            notes_20 = self.get_int_input("Кількість купюр номіналом 20: ")
+            notes_50 = self.get_int_input("Кількість купюр номіналом 50: ")
+            notes_100 = self.get_int_input("Кількість купюр номіналом 100: ")
+            notes_200 = self.get_int_input("Кількість купюр номіналом 200: ")
+            notes_500 = self.get_int_input("Кількість купюр номіналом 500: ")
+            notes_1000 = self.get_int_input("Кількість купюр номіналом 1000: ")
 
-        self.cursor.execute('''
-            UPDATE banknotes SET
-            notes_10 = ?,
-            notes_20 = ?,
-            notes_50 = ?,
-            notes_100 = ?,
-            notes_200 = ?,
-            notes_500 = ?,
-            notes_1000 = ?
-        ''', (notes_10, notes_20, notes_50, notes_100, notes_200, notes_500, notes_1000))
+            self.cursor.execute('''
+                UPDATE banknotes SET
+                notes_10 = ?,
+                notes_20 = ?,
+                notes_50 = ?,
+                notes_100 = ?,
+                notes_200 = ?,
+                notes_500 = ?,
+                notes_1000 = ?
+            ''', (notes_10, notes_20, notes_50, notes_100, notes_200, notes_500, notes_1000))
 
-        self.conn.commit()
-        print("Кількість купюр в банкоматі успішно оновлено.")
+            self.connection.commit()
+            print("Кількість купюр в банкоматі успішно оновлено.")
 
     def start(self):
         while True:
@@ -266,7 +269,6 @@ class BankSystem:
                 break
             else:
                 print("Невірний вибір. Спробуйте ще раз.")
-
 
 
 if __name__ == "__main__":
