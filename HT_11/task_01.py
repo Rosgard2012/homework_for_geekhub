@@ -21,43 +21,58 @@ https://realpython.com/documenting-python-code/ )"""
 class Calc:
     def __init__(self):
         self.last_result = None
+        self.prev_result = None
         print("last_result --> None")
 
     def add(self, x, y):
         result = x + y
-        self.last_result = result
-        print(f"last_result --> {self.last_result}")
+
         print(f"{x} + {y} = {result}")
-        return result
+        print(f"last_result --> {self.last_result}")
+        self.prev_result = self.last_result
+        self.last_result = result
+        return self.last_result
 
     def subtract(self, x, y):
         result = x - y
-        self.last_result = result
-        print(f"last_result --> {self.last_result}")
+
         print(f"{x} - {y} = {result}")
-        return result
+        print(f"last_result --> {self.last_result}")
+        self.prev_result = self.last_result
+        self.last_result = result
+        return self.last_result
 
     def multiply(self, x, y):
         result = x * y
-        self.last_result = result
-        print(f"last_result --> {self.last_result}")
+
         print(f"{x} * {y} = {result}")
-        return result
+        print(f"last_result --> {self.last_result}")
+        self.prev_result = self.last_result
+        self.last_result = result
+        return self.last_result
 
     def divide(self, x, y):
+        if y == 0:
+            raise ValueError("Ділення на нуль неможливе")
         result = x / y
-        self.last_result = result
-        print(f"last_result --> {self.last_result}")
+
         print(f"{x} / {y} = {result}")
-        return result
+        print(f"last_result --> {self.last_result}")
+        self.prev_result = self.last_result
+        self.last_result = result
+        return self.last_result
+
+    def last(self):
+        print(f"last_result --> {self.last_result}")
+        return self.last_result
+
 
 calc = Calc()
-calc.last_result
-calc.add(3, 5)
-calc.last_result
-calc.subtract(3, 5)
-calc.last_result
-calc.multiply(3, 5)
-calc.last_result
-calc.divide(3, 5)
-calc.last_result
+
+calc.add(1, 1)
+
+calc.subtract(5, 2)
+
+calc.multiply(2, 3)
+
+calc.divide(10, 2)
