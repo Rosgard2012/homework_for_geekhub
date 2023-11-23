@@ -52,6 +52,12 @@ class BankSystem:
                   " принаймні одну цифру, одну букву верхнього та нижнього регістру.")
             return
 
+        if random.random() < 0.1:
+            bonus_amount = random.uniform(50, 200)
+            print(f"Вітаємо! Ви отримали бонус {bonus_amount} грн.")
+        else:
+            bonus_amount = 0
+
         self.cursor.execute('INSERT INTO users (username, password) VALUES (?, ?)', (username, password))
         self.connection.commit()
         print("Новий користувач успішно створений.")
