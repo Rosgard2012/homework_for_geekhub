@@ -209,7 +209,9 @@ class BankSystem:
 
 
     def view_notes_ink(self, username):
-        self.cursor.execute('SELECT * FROM banknotes')
+#        self.cursor.execute
+        self.cursor.execute('SELECT * FROM banknotes  WHERE id = 1')
+
         notes_data = self.cursor.fetchone()
 
         print("\nКількість купюр в банкоматі:")
