@@ -83,7 +83,7 @@ class BankSystem:
 
         self.cursor.execute('INSERT INTO transactions (user_id, action, amount) VALUES (?, ?, ?)',
                                 (user_id, transaction_type, amount))
-        self.conn.commit()
+        self.connection.commit()
 
 
     def is_valid_amount(self, amount, atm_balance):
