@@ -114,8 +114,8 @@ class BankSystem:
         self.cursor.execute('SELECT * FROM banknotes')
         notes_data = self.cursor.fetchone()
 
-        available_notes = {1000: notes_data[1], 500: notes_data[2], 200: notes_data[3], 100: notes_data[4],
-                           50: notes_data[5], 20: notes_data[6], 10: notes_data[7]}
+        available_notes = {10: notes_data[1], 20: notes_data[2], 50: notes_data[3], 100: notes_data[4],
+                           200: notes_data[5], 500: notes_data[6], 1000: notes_data[7]}
         sorted_notes = sorted(available_notes.keys(), reverse=True)
         withdrawal = {}
 
