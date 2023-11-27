@@ -110,6 +110,30 @@ class BankSystem:
 
             return atm_balance
 
+    def withdraw_cash(self, amount):
+        self.cursor.execute('SELECT * FROM banknotes')
+        notes_data = self.cursor.fetchone()
+
+        available_notes = {1000: notes_data[1], 500: notes_data[2], 200: notes_data[3], 100: notes_data[4],
+                           50: notes_data[5], 20: notes_data[6], 10: notes_data[7]}
+        sorted_notes = sorted(available_notes.keys(), reverse=True)
+        withdrawal = {}
+
+        for note in sorted_notes:
+            while amount >= note and available_notes[note] > 0:
+                amount -= note
+                available_notes[note] -= 1
+                if note in withdrawal:
+                    withdrawal[note] += 1
+                else:
+                    withdrawal[note] = 1
+
+        if amount == 0:
+
+            return withdrawal
+
+        return None
+
 
     def deposit(self, username):
         amount = self.get_float_input("Введіть суму для внесення: ")
@@ -136,15 +160,20 @@ class BankSystem:
         amount = self.get_float_input("Введіть суму для зняття: ")
         user_balance = self.load_balance(username)
         atm_balance = self.load_atm_balance()
+        withdrawal = self.withdraw_cash(amount)
 
         if self.is_valid_amount(amount, atm_balance):
             if amount > user_balance:
-                print("Недостатньо коштів на рахунку.")
+                print("Недостатньо коштів на рахунку")
+            if withdrawal is None:
+                print("Недостатньо коштів в банкоматі")
             else:
-                    new_balance = user_balance - amount
-                    self.update_balance(username, new_balance)
-                    self.save_transaction(username, 'withdraw', amount)
-                    print(f"Гроші знято успішно. Новий баланс: {new_balance} грн")
+                new_balance = user_balance - amount
+                self.update_balance(username, new_balance)
+                self.save_transaction(username, 'withdraw', amount)
+                print(f"Гроші знято успішно. Новий баланс: {new_balance} грн")
+                print(f1
+                "Видача грошей: {self.withdraw_cash(amount)} грн")
         else:
             print("Помилка: Неприпустима сума для зняття.")
 
