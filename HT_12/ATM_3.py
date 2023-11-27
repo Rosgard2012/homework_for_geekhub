@@ -172,8 +172,7 @@ class BankSystem:
                 self.update_balance(username, new_balance)
                 self.save_transaction(username, 'withdraw', amount)
                 print(f"Гроші знято успішно. Новий баланс: {new_balance} грн")
-                print(f1
-                "Видача грошей: {self.withdraw_cash(amount)} грн")
+                print(f"Видача грошей: {self.withdraw_cash(amount)} грн")
         else:
             print("Помилка: Неприпустима сума для зняття.")
 
