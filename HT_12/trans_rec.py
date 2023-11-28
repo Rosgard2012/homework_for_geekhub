@@ -6,7 +6,7 @@ cursor = conn.cursor()
 
 # Отримання кількості купюр з бази даних
 cursor.execute("SELECT notes_1000, notes_500, notes_200, notes_100, notes_50, notes_20, notes_10 FROM banknotes")
-bills_available = cursor.fetchone()
+bills_available = cursor.fetchone() # Отримання першого запису з бази даних
 
 def atm_transaction(bills_available, amount): # Перевірка на наявність купюр та суми для видачі
     # методом рекурсії
@@ -43,12 +43,13 @@ print(result) # Вивід результату
 
 bills_available_1 = [0, 0, 1, 1, 4, 6, 0]
 amount_1 = 110
-print(atm_transaction(bills_available_1, amount_1))  # Очікуваний результат: {50: 1, 20: 3}
+print(atm_transaction(bills_available_1, amount_1))  # Очікуваний результат: (50 + 3х20)
 
-bills_available_2 = [5, 1, 4, 0, 1, 1, 5]
-amount_2 = 1170
-print(atm_transaction(bills_available_2, amount_2))  # Очікуваний результат: {500: 1, 200: 3, 50: 1, 20: 1}
 
 bills_available_3 = [10, 10, 10, 10, 10, 10, 0]
 amount_3 = 160
-print(atm_transaction(bills_available_3, amount_3))  # Очікуваний результат: {100: 1, 20: 3}
+print(atm_transaction(bills_available_3, amount_3))  # Очікуваний результат: (100 + 3х20)
+
+bills_available_2 = [5, 1, 4, 0, 1, 1, 5]
+amount_2 = 1170
+print(atm_transaction(bills_available_2, amount_2))  # Очікуваний результат: (500 + 3х200 + 50 + 20)
