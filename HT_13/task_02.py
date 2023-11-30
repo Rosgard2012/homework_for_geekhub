@@ -99,11 +99,16 @@ for book in teacher2.books_assigned:
 
 print(f"\nBooks on shelf: {[book.title for book in shelf.books]}")
 
-print(f"\n{student1.name} (age {student1.age}) has taken {student1.books_count} books.")
+
+print(f"\n{student1.name} (age {student1.age}) has taken "
+      f"{student1.books_count} books.")
 print(f" books:")
 for book in student1.books_taken:
     print(f"- {book.title}")
-print(f"\n{student2.name} (age {student2.age}) has taken {student2.books_count} books.")
+
+
+print(f"\n{student2.name} (age {student2.age}) has taken "
+      f"{student2.books_count} books.")
 print(f" books:")
 for book in student2.books_taken:
     print(f"- {book.title}")
