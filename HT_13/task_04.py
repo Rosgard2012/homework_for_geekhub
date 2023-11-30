@@ -32,3 +32,5 @@ print(len(custom))
 custom.append(40)
 print(custom)  # Виведе: [10, 20, 30, 40]
 print(len(custom)) # Виведе: 4
+print(custom.pop()) # Виведе: 40
+print(custom) # Виведе: [10, 20, 30]
