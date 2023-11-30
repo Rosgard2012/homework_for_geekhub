@@ -12,11 +12,13 @@ class Figure:
     def change_color(self, new_color):
         self.color = new_color
 
+
 class Oval(Figure):
     def __init__(self, width, height):
         super().__init__()
         self.width = width
         self.height = height
+
 
 class Square(Figure):
     def __init__(self, side_length):

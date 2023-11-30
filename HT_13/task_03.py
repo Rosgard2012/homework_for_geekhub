@@ -4,6 +4,7 @@
 
 class MyClass:
     count = 0
+
     def __init__(self):
         MyClass.count += 1
 

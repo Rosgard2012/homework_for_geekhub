@@ -2,6 +2,7 @@
 raises error. Тобто це повинен бути клас, який буде поводити себе так,
  як list (маючи основні методи), але індексація повинна починатись із 1'''
 
+
 class CustomList:
     def __init__(self, *args):
         self._data = list(args)
@@ -24,13 +25,11 @@ class CustomList:
         return self._data.pop()
 
 
-
-
 custom = CustomList(10, 20, 30)
 print(custom[1])
 print(len(custom))
 custom.append(40)
-print(custom)  # Виведе: [10, 20, 30, 40]
-print(len(custom)) # Виведе: 4
-print(custom.pop()) # Виведе: 40
-print(custom) # Виведе: [10, 20, 30]
+print(custom)
+print(len(custom))
+print(custom.pop())
+print(custom)

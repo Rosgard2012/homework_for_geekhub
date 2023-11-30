@@ -2,10 +2,12 @@
  бібліотеки (включіть фантазію). Наприклад вона може містити класи
  Person, Teacher, Student, Book, Shelf, Author, Category і.т.д.'''
 
+
 class Person:
     def __init__(self, name, age):
         self.name = name
         self.age = age
+
 
 class Teacher(Person):
     def __init__(self, name, age, subject):
@@ -15,6 +17,7 @@ class Teacher(Person):
 
     def assign_book(self, book):
         self.books_assigned.append(book)
+
 
 class Student(Person):
     def __init__(self, name, age, grade):
@@ -27,13 +30,16 @@ class Student(Person):
         self.books_taken.append(book)
         self.books_count += 1
 
+
 class Author(Person):
     def __init__(self, name):
         super().__init__(name, None)
 
+
 class Category:
     def __init__(self, name):
         self.name = name
+
 
 class Book:
     def __init__(self, title, author, category):
@@ -41,12 +47,14 @@ class Book:
         self.author = author
         self.category = category
 
+
 class Shelf:
     def __init__(self):
         self.books = []
 
     def add_book(self, book):
         self.books.append(book)
+
 
 teacher1 = Teacher("John Doe", 35, "Math")
 teacher2 = Teacher("Mate Das", 30, "English")
