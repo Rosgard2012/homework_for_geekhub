@@ -26,6 +26,7 @@ class CustomList:
 
 
 custom = CustomList(10, 20, 30)
+print(custom)
 print(custom[1])
 print(len(custom))
 custom.append(40)
