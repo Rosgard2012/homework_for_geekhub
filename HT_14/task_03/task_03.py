@@ -20,13 +20,13 @@ def scrape_quotes():
                 quote_text = quote.find(class_='text').get_text(strip=True)
                 author = quote.find(class_='author').get_text(strip=True)
 
-                csv_writer.writerow([quote_text, author, tags])
+                csv_writer.writerow([quote_text, author])
 
         else:
             print(f'Failed to fetch page {page_num}')
         author_url = quote.find('a', href=True)['href']
         author_details = scrape_author_details('http://quotes.toscrape.com' + author_url)
-        csv_writer.writerow([quote_text, author, tags,
+        csv_writer.writerow([quote_text, author,
                              author_details['Born'],
                              author_details['Location'],
                              author_details['Description']])
