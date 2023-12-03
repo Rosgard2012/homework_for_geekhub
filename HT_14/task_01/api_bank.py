@@ -18,7 +18,7 @@ import json
         print("Failed to fetch data")'''
 
 
-def get_currency_exchange2():
+def get_currency_exchange():
     url = 'https://api.privatbank.ua/p24api/pubinfo?exchange&coursid=5'
     with urllib.request.urlopen(url) as response:
         data = json.loads(response.read().decode())
@@ -26,5 +26,5 @@ def get_currency_exchange2():
             print(f"{currency['ccy']}/{currency['base_ccy']} Buy: {currency['buy']} Sale: {currency['sale']}")
 
 
-#get_currency_exchange()
-get_currency_exchange2() # завжди виводить курси про роботі банкомату - не баг а фіча
+
+get_currency_exchange() # завжди виводить курси про роботі банкомату - не баг а фіча
