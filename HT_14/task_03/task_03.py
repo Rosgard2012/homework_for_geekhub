@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import csv
 
 
+
 def scrape_quotes():
     csv_file = open('quotes.csv', 'w', newline='', encoding='utf-8')
     csv_writer = csv.writer(csv_file)
