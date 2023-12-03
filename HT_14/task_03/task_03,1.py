@@ -3,13 +3,20 @@ from bs4 import BeautifulSoup
 import csv
 
 
-def scrape_quotes():
-    csv_file = open('quotes.csv', 'w', newline='', encoding='utf-8')
+quotes_base_url = "http://quotes.toscrape.com/page/"
+
+main_url = "http://quotes.toscrape.com"
+
+quotes_filename = 'quotes2.csv'
+
+
+def scrape_quotes(quotes_base_url, main_url, quotes_filename):
+    csv_file = open(quotes_filename, 'w', newline='', encoding='utf-8')
     csv_writer = csv.writer(csv_file)
     csv_writer.writerow(['Quote', 'Author', 'Born', 'Location', 'Description'])
 
     for page_num in range(1, 11):
-        url = f'http://quotes.toscrape.com/page/{page_num}'
+        url = f'{quotes_base_url}{page_num}'
         response = requests.get(url)
 
         if response.status_code == 200:
@@ -21,7 +28,7 @@ def scrape_quotes():
                 author = quote.find(class_='author').get_text(strip=True)
 
                 author_url = quote.find('a', href=True)['href']
-                author_details = scrape_author_details('http://quotes.toscrape.com' + author_url)
+                author_details = scrape_author_details(f"{main_url}{author_url}")
 
                 csv_writer.writerow([quote_text, author,
                                      author_details.get('Born', ''),
@@ -54,4 +61,4 @@ def scrape_author_details(url):
         return None
 
 
-scrape_quotes()
+scrape_quotes(quotes_base_url, main_url, quotes_filename)
