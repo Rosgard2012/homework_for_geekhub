@@ -2,12 +2,12 @@ import requests
 from bs4 import BeautifulSoup
 import csv
 
-# Створюємо CSV-файл для збереження даних
-csv_file = open('quotes.csv', 'w', newline='', encoding='utf-8')
-csv_writer = csv.writer(csv_file)
-csv_writer.writerow(['Quote', 'Author', 'Tags'])
 
-# Збираємо дані з 10 сторінок
+csv_quotes = open('quotes.csv', 'w', newline='', encoding='utf-8')
+csv_writer_quotes = csv.writer(csv_quotes)
+csv_writer_quotes.writerow(['Quote', 'Author', 'Tags'])
+
+
 for page_num in range(1, 11):
     url = f'http://quotes.toscrape.com/page/{page_num}'
     response = requests.get(url)
@@ -26,4 +26,4 @@ for page_num in range(1, 11):
     else:
         print(f'Failed to fetch page {page_num}')
 
-csv_file.close()
+csv_quotes.close()
