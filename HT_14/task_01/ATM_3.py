@@ -2,6 +2,7 @@
 import sqlite3
 from pathlib import Path
 import random
+from api_bank import *
 
 BASE_DIR = Path(__file__).parent
 DB_PATH = Path(BASE_DIR, "bank.db")
@@ -272,7 +273,8 @@ class BankSystem:
             print("1. Продивитись баланс")
             print("2. Поповнити баланс")
             print("3. Зняти кошти")
-            print("4. Вихід")
+            print("4. Курси валют")
+            print("5. Вихід")
 
             choice = input("Ваш вибір: ")
 
@@ -283,6 +285,9 @@ class BankSystem:
             elif choice == '3':
                 self.withdrawal(username)
             elif choice == '4':
+                print("Курси валют:")
+                get_currency_exchange2()
+            elif choice == '5':
                 print("Дякуємо за використання нашого банкомату. До побачення!")
                 break
             else:
