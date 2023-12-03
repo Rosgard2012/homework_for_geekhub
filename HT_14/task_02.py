@@ -3,36 +3,67 @@
 початкова і кінцева дати, продумайте механізм реалізації) і назву валюти
 - вивести курс по відношенню до гривні на момент вказаної дати (або за кожен
 день у вказаному інтервалі)
-- не забудьте перевірку на валідність введених даних"""
+- не забудьте перевірку на валідність введених даних
+https://api.privatbank.ua/#p24/exchangeArchive
+"""
 
-import requests
-from datetime import datetime
+import urllib.request
 import json
+import datetime
+
+def get_currency_exchange_by_date(date, currencies):
+    url = f'https://api.privatbank.ua/p24api/exchange_rates?date={date}'
+    with urllib.request.urlopen(url) as response:
+        data = json.loads(response.read().decode())
+        for exchange_rate in data['exchangeRate']:
+            if exchange_rate['currency'] in currencies:
+                print(
+                    f"On {date}, 1 {exchange_rate['baseCurrencyLit']} "
+                    f"equals {exchange_rate['saleRate']} "
+                    f"{exchange_rate['currency']} (sale rate)")
+
+def get_currency_exchange():
+    url = 'https://api.privatbank.ua/p24api/pubinfo?exchange&coursid=5'
+    with urllib.request.urlopen(url) as response:
+        data = json.loads(response.read().decode())
+        for currency in data:
+            print(f"{currency['ccy']}/{currency['base_ccy']} Buy: {currency['buy']} Sale: {currency['sale']}")
+
+def start():
+    while True:
+        print(f"\nВітаємо вас у програмі для отримання курсу валют спс пріватбанку")
+        print("Виберіть потрібну вам дію")
+        print("1 - Отримати курс на сьогодні")
+        print("2 - Отримати курс на певну дату по валютам: USD, EUR, PLN, UAH")
+        print("3 - Отримати курс валют за певний період")
+
+        print("5 - Вийти з програми")
+
+        choice = input("Ваш вибір: ")
+        if choice == "1":
+            get_currency_exchange()
+        elif choice == "2":
+            currencies = ['USD', 'EUR', 'PLN', 'UAH']
+            date_input = input("Введіть дату (у форматі дд.мм.рррр): ")
+        elif choice == "3":
+            date_input = input("Введіть дату (у форматі дд.мм.рррр): ")
+            currencies = ['USD', 'EUR', 'PLN', 'UAH']
+            get_currency_exchange_by_date(date_input, currencies)
+        elif choice == "5":
+            print("До побачення!")
+            exit()
+        else:
+            print("Неправильний вибір. Спробуйте ще раз.")
+            start()
+
+start()
 
 
-class API:
-    def __init__(self, url):
-        self.url = url
 
-    def get_data(self, start_date, end_date, currency):
-        start_date = datetime.strptime(start_date, '%Y-%m-%d')
-        end_date = datetime.strptime(end_date, '%Y-%m-%d')
-        delta = end_date - start_date
-        if delta.days < 0:
-            raise ValueError("Start date can't be greater than end date")
-        for i in range(delta.days + 1):
-            date = start_date + timedelta(days=i)
-            date = date.strftime('%Y-%m-%d')
-            response = requests.get(f"{self.url}{date}")
-            data = json.loads(response.text)
-            print(f"{date}: {data['rates'][currency]}")
+    #currencies = ['USD', 'EUR', 'PLN', 'UAH']  # Ви можете змінити ці валюти на потрібні вам
+    #get_currency_exchange_by_date(input_date, currencies)
 
-    def get_data_for_date(self, date, currency):
-        response = requests.get(f"{self.url}{date}")
-        data = json.loads(response.text)
-        print(f"{date}: {data['rates'][currency]}")
-
-
-api = API("https://api.exchangeratesapi.io/")
-api.get_data_for_date("2021-01-01", "USD")
-api.get_data("2021-01-01", "2021-01-05", "USD")
+    # get_currency_exchange()
+    # input_date = input("Введіть дату (у форматі дд.мм.рррр): ")
+    # currencies = ['USD', 'EUR', 'PLN', 'UAH']  # Ви можете змінити ці валюти на потрібні вам
+    # get_currency_exchange_by_date(input_date, currencies)

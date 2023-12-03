@@ -1,5 +1,7 @@
 """1. Додайте до банкомату меню отримання поточного курсу валют
-за допомогою requests (можна використати відкрите API ПриватБанку)"""
+за допомогою requests (можна використати відкрите API ПриватБанку)
+https://api.privatbank.ua/#p24/exchange
+"""
 import urllib.request
 #import requests
 import json
