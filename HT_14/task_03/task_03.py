@@ -2,7 +2,6 @@ import requests
 from bs4 import BeautifulSoup
 import csv
 
-
 def scrape_quotes():
     csv_file = open('quotes.csv', 'w', newline='', encoding='utf-8')
     csv_writer = csv.writer(csv_file)
@@ -20,18 +19,18 @@ def scrape_quotes():
                 quote_text = quote.find(class_='text').get_text(strip=True)
                 author = quote.find(class_='author').get_text(strip=True)
 
-                csv_writer.writerow([quote_text, author])
+                author_url = quote.find('a', href=True)['href']
+                author_details = scrape_author_details('http://quotes.toscrape.com' + author_url)
+
+                csv_writer.writerow([quote_text, author,
+                                     author_details.get('Born', ''),
+                                     author_details.get('Location', ''),
+                                     author_details.get('Description', '')])
 
         else:
             print(f'Failed to fetch page {page_num}')
-        author_url = quote.find('a', href=True)['href']
-        author_details = scrape_author_details('http://quotes.toscrape.com' + author_url)
-        csv_writer.writerow([quote_text, author,
-                             author_details['Born'],
-                             author_details['Location'],
-                             author_details['Description']])
-    csv_file.close()
 
+    csv_file.close()
 
 def scrape_author_details(url):
     response = requests.get(url)
@@ -51,6 +50,5 @@ def scrape_author_details(url):
     else:
         print(f'Failed to fetch author details from {url}')
         return None
-
 
 scrape_quotes()
