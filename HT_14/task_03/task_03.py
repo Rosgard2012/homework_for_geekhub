@@ -7,7 +7,7 @@ import csv
 def scrape_quotes():
     csv_file = open('quotes.csv', 'w', newline='', encoding='utf-8')
     csv_writer = csv.writer(csv_file)
-    csv_writer.writerow(['Quote', 'Author', 'Tags', 'Born', 'Location', 'Description'])
+    csv_writer.writerow(['Quote', 'Author', 'Born', 'Location', 'Description'])
 
     for page_num in range(1, 11):
         url = f'http://quotes.toscrape.com/page/{page_num}'
@@ -20,7 +20,6 @@ def scrape_quotes():
             for quote in quotes:
                 quote_text = quote.find(class_='text').get_text(strip=True)
                 author = quote.find(class_='author').get_text(strip=True)
-                tags = ', '.join(tag.get_text(strip=True) for tag in quote.find_all(class_='tag'))
 
                 csv_writer.writerow([quote_text, author, tags])
 
