@@ -14,10 +14,11 @@ import datetime
 
 def validate_date(input_date):
     try:
-        if "-" in input_date:
-            input_date = input_date.replace("-", ".")
-        elif "," in input_date:
-            input_date = input_date.replace(",", ".")
+        separators = ["-", ","]
+
+        for separator in separators:
+            if separator in input_date:
+                input_date = input_date.replace(separator, ".")
 
         date = datetime.datetime.strptime(input_date, "%d.%m.%Y")
         return date.strftime("%d.%m.%Y")
@@ -34,11 +35,16 @@ def get_currency_exchange_by_date(date, currencies):
             if 'exchangeRate' in data:
                 for exchange_rate in data['exchangeRate']:
                     if exchange_rate.get('currency') in currencies:
-                        if 'saleRate' in exchange_rate:
-                            base_currency = exchange_rate.get('baseCurrencyLit', data.get('baseCurrency'))
-                            sale_rate = exchange_rate['saleRate']
-                            currency = exchange_rate['currency']
-                            print(f"On {date}, 1 {base_currency} equals {sale_rate} {currency} (sale rate)")
+                        if 'saleRateNB' in exchange_rate and 'purchaseRateNB' in exchange_rate:
+                            sale_rate_nbu = exchange_rate['saleRateNB']
+                            purchase_rate_nbu = exchange_rate['purchaseRateNB']
+                            sale_rate_pb = exchange_rate['saleRate']
+                            purchase_rate_pb = exchange_rate['purchaseRate']
+                            print(
+                                f"На {date} {exchange_rate['currency']} "
+                                f"Курс продажу НБУ ({sale_rate_nbu}/{purchase_rate_nbu}) "
+                                f"Курс продажу/купівлі ПриватБанку {sale_rate_pb}/{purchase_rate_pb} "
+                            )
                         else:
                             print(f"No sale rate available for {exchange_rate['currency']} on {date}")
             else:
@@ -50,17 +56,24 @@ def get_currency_exchange_by_date(date, currencies):
     except Exception as e:
         print(f"An error occurred: {e}")
 
+
+
 def get_currency_exchange():
     url = 'https://api.privatbank.ua/p24api/pubinfo?exchange&coursid=5'
     with urllib.request.urlopen(url) as response:
         data = json.loads(response.read().decode())
         for currency in data:
-            print(f"{currency['ccy']}/{currency['base_ccy']} Купівля: {currency['buy']} Продаж: {currency['sale']}")
+            print(f"{currency['ccy']}/{currency['base_ccy']} "
+                  f"Купівля: {currency['buy']} Продаж: {currency['sale']}")
 
 
 def get_currency_interval_exchange():
-    start_date = validate_date(input("Введіть початкову дату (у форматі дд.мм.ррррр): "))
-    end_date = validate_date(input("Введіть кінцеву дату (у форматі дд.мм.ррррр): "))
+    start_date = validate_date(input(
+        "Введіть початкову дату (у форматі дд.мм.ррррр): ")
+    )
+    end_date = validate_date(input(
+        "Введіть кінцеву дату (у форматі дд.мм.ррррр): ")
+    )
 
     currencies_dict = {
         'USD': 'долар США',
