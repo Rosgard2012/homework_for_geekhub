@@ -27,35 +27,44 @@ def validate_date(input_date):
         return None
 
 
-def get_currency_exchange_by_date(date, currencies):
-    url = f'https://api.privatbank.ua/p24api/exchange_rates?date={date}'
+def get_exchange_rates(url):
     try:
         with urllib.request.urlopen(url) as response:
-            data = json.loads(response.read().decode())
-            if 'exchangeRate' in data:
-                for exchange_rate in data['exchangeRate']:
-                    if exchange_rate.get('currency') in currencies:
-                        if 'saleRateNB' in exchange_rate and 'purchaseRateNB' in exchange_rate:
-                            sale_rate_nbu = exchange_rate['saleRateNB']
-                            purchase_rate_nbu = exchange_rate['purchaseRateNB']
-                            sale_rate_pb = exchange_rate['saleRate']
-                            purchase_rate_pb = exchange_rate['purchaseRate']
-                            print(
-                                f"На {date} {exchange_rate['currency']} "
-                                f"Курс продажу НБУ ({sale_rate_nbu}/{purchase_rate_nbu}) "
-                                f"Курс продажу/купівлі ПриватБанку {sale_rate_pb}/{purchase_rate_pb} "
-                            )
-                        else:
-                            print(f"No sale rate available for {exchange_rate['currency']} on {date}")
-            else:
-                print("No exchange rates available for the provided date.")
+            return json.loads(response.read().decode())
     except urllib.error.URLError as e:
         print(f"Error accessing the API: {e.reason}")
     except json.JSONDecodeError as e:
         print(f"Error decoding JSON: {e}")
     except Exception as e:
         print(f"An error occurred: {e}")
+    return None
 
+
+def print_currency_exchange(date, exchange_rate):
+    sale_rate_nbu = exchange_rate['saleRateNB']
+    purchase_rate_nbu = exchange_rate['purchaseRateNB']
+    sale_rate_pb = exchange_rate['saleRate']
+    purchase_rate_pb = exchange_rate['purchaseRate']
+    print(
+        f"На {date} {exchange_rate['currency']} "
+        f"Курс продажу НБУ ({sale_rate_nbu}/{purchase_rate_nbu}) "
+        f"Курс продажу/купівлі ПриватБанку {sale_rate_pb}/{purchase_rate_pb} "
+    )
+
+
+def get_currency_exchange_by_date(date, currencies):
+    url = f'https://api.privatbank.ua/p24api/exchange_rates?date={date}'
+    data = get_exchange_rates(url)
+
+    if data and 'exchangeRate' in data:
+        for exchange_rate in data['exchangeRate']:
+            if exchange_rate.get('currency') in currencies:
+                if 'saleRateNB' in exchange_rate and 'purchaseRateNB' in exchange_rate:
+                    print_currency_exchange(date, exchange_rate)
+                else:
+                    print(f"No sale rate available for {exchange_rate['currency']} on {date}")
+    else:
+        print("No exchange rates available for the provided date.")
 
 
 def get_currency_exchange():
@@ -65,6 +74,16 @@ def get_currency_exchange():
         for currency in data:
             print(f"{currency['ccy']}/{currency['base_ccy']} "
                   f"Купівля: {currency['buy']} Продаж: {currency['sale']}")
+
+
+def get_currency_interval_exchange_by_currency(currency, start_date, end_date):
+    current_date = datetime.datetime.strptime(start_date, "%d.%m.%Y")
+    end_date = datetime.datetime.strptime(end_date, "%d.%m.%Y")
+
+    while current_date <= end_date:
+        formatted_date = current_date.strftime("%d.%m.%Y")
+        get_currency_exchange_by_date(formatted_date, [currency])
+        current_date += datetime.timedelta(days=1)
 
 
 def get_currency_interval_exchange():
@@ -96,12 +115,10 @@ def get_currency_interval_exchange():
         chosen_currency = input("Оберіть валюту з переліку: ").upper()
 
     if start_date and end_date:
-        current_date = start_date
-        while current_date <= end_date:
-            get_currency_exchange_by_date(current_date, [chosen_currency])
-            current_date += datetime.timedelta(days=1)
+        get_currency_interval_exchange_by_currency(chosen_currency, start_date, end_date)
     else:
         print("Дані введено неправильно. Перевірте формат введених даних.")
+
 
 
 
@@ -131,16 +148,3 @@ def start():
 
 
 start()
-
-
-#validate_date("12-12-2012")
-
-
-
-    #currencies = ['USD', 'EUR', 'PLN', 'UAH']  # Ви можете змінити ці валюти на потрібні вам
-    #get_currency_exchange_by_date(input_date, currencies)
-
-    # get_currency_exchange()
-    # input_date = input("Введіть дату (у форматі дд.мм.рррр): ")
-    # currencies = ['USD', 'EUR', 'PLN', 'UAH']  # Ви можете змінити ці валюти на потрібні вам
-    # get_currency_exchange_by_date(input_date, currencies)
