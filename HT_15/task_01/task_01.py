@@ -24,7 +24,7 @@ def get_data(category_id):
 
 def write_to_csv(category_id, data):
     current_directory = os.path.dirname(__file__)
-    directory = os.path.join(current_directory, '.')
+    directory = os.path.join(current_directory)
     if not os.path.exists(directory):
         os.makedirs(directory)
 
@@ -49,10 +49,10 @@ def write_to_csv(category_id, data):
 
 
 def start():
-        category_id = input("введи category id: ")
+        category_id = input("введи category id (холодильники: 1020022): ")
         data = get_data(category_id)
         write_to_csv(category_id, data)
-        print('Шалость  удалась')
+        print('Шалость  удалась;)')
 
 
 start()
