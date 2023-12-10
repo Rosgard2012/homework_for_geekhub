@@ -59,10 +59,10 @@ def write_to_csv(category_id, data):
 
 
 def start():
-        category_id = input("введи category id (1025184): ")
-        data = get_data(category_id)
-        write_to_csv(category_id, data)
-        print('Шалость  удалась;)')
+    category_id = input("введи category id (1025184, 1020022): ")
+    data = get_data(category_id)
+    write_to_csv(category_id, data)
+    print('Шалость  удалась;)')
 
 
 start()
