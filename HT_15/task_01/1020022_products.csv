@@ -1,1 +1,301 @@
-BrandName,Name,Category,FinalPrice
+brand,name,old_price,new_price,store
+Kenmore,Kenmore 60492  18.3 cu. ft. Top-Freezer Refrigerator with Glass Shelves - White,899.99,549.88,Sears
+Frigidaire Gallery,Frigidaire Gallery GRMC2273CF 21.5 cu. ft. Counter-Depth 4-Door French Door Refrigerator &#8211; Smudge-Proof&#174; Stainless Steel,3499.99,2099.99,Sears
+Haier,Haier QHE16HYPFS 16.8 Cu. Ft. Quad Door Refrigerator - Stainless Steel,1799.00,1110.99,Sears
+Frigidaire,Frigidaire FRTD2021AW  20.5 cu. ft. Top Freezer Refrigerator &#8211; White,929.99,679.99,Sears
+Frigidaire,Frigidaire FRTD2021AS  20.5 cu. ft. Top Freezer Refrigerator &#8211; Stainless Steel,1029.99,723.00,Sears
+Frigidaire,Frigidaire FRFS2823AD  27.8 cu. ft. French Door Refrigerator &#8211; Black Stainless Steel,2799.99,1949.99,Sears
+GE Appliances,"GE Appliances PSB48YSNSS Profile 48"" Smart Side By Side Refrigerator with Dispenser",10929.99,9836.96,Sears
+Kenmore Elite,Kenmore Elite 73315 30.6 cu. ft. Large Capacity Smart French Door Refrigerator - Fingerprint Resistant Stainless Steel,3599.99,1699.99,Sears
+GE Appliances,GE Appliances GTS19KYNRFS GE  19.2 Cu. Ft. Top-Freezer Refrigerator - Fingerprint Resistant Stainless,1049.99,799.99,Sears
+Kenmore,Kenmore 60499  18.3 cu. ft. Top-Freezer Refrigerator - Textured Black,849.99,499.88,Sears
+Samsung,Samsung RF27T5501SR/AA 27 cu. ft. French Door Refrigerator with Family Hub&#8482; -  Stainless Steel,3399.99,3056.59,Sears
+GE Appliances,GE Appliances GNE25JYKFS ENERGY STAR&#174; 24.7 Cu. Ft. French-Door Refrigerator - Stainless Steel,1899.99,1499.99,Sears
+Kenmore,Kenmore 60495  18.3 cu. ft. Top-Freezer Refrigerator with Glass Shelves - Fingerprint Resistant Stainless Steel Look Finish,999.99,599.88,Sears
+Frigidaire Gallery,Frigidaire Gallery GRSS2652AF  25.6 cu. ft. Side-by-Side Refrigerator with Ice & Water Dispenser &#8211; Smudge-Proof&#174; Stainless Steel,1749.99,1199.99,Sears
+Frigidaire,Frigidaire FRSS2623AS 25.6 cu. ft. Side-by-Side Refrigerator &#8211; Stainless Steel,1499.99,1099.99,Sears
+LG,"LG LFDS22520S-1 30"" 22 cu.ft. Stainless Steel French Door Refrigerator and Bottom Freezer",2199.99,1695.99,Sears
+Frigidaire Gallery,Frigidaire Gallery GRFS2853AF  27.8 cu. ft. French Door Refrigerator &#8211; Smudge-Proof&#174; Stainless Steel,2999.99,1999.99,Sears
+Samsung,Samsung RF28R7201SR 28 cu. ft. 4-Door French Door Refrigerator - Stainless Steel,3199.99,2876.79,Sears
+GE Appliances,GE Appliances GWE19JYLFS ENERGY STAR&#174; 18.6 Cu. Ft. Counter-Depth French-Door Refrigerator - Stainless Steel,2099.99,1599.99,Sears
+GE Appliances,GE Appliances GSS25GYPFS 25.3 Cu. Ft. Side-By-Side Refrigerator - Stainless Steel,1799.99,1199.99,Sears
+Samsung,Samsung Bespoke 4-Door French Door Refrigerator (29 cu. ft.) with AutoFill Water Pitcher in Stainless Steel,3299.00,1999.99,Bluelight
+Frigidaire,Frigidaire FFTR2045VS  20.0 cu. ft. Top Freezer Refrigerator &#8211; Stainless Steel,1049.99,749.99,Sears
+GE Appliances,"GE Appliances GTS22KGNRWW 33"" 21.9 cu.ft. White Top Freezer Refrigerator",1099.99,888.99,Sears
+Frigidaire,Frigidaire FRFS2823AS  27.8 cu. ft. French Door Refrigerator &#8211; Stainless Steel,2699.99,1799.99,Sears
+LG,LG LRMWS2906S  28.6 cu. ft. 4-Door French Door Refrigerator with Slim Design Water Dispenser &#8211; PrintProof&#8482; Stainless Steel,2554.99,1799.99,Sears
+LG,LG LRDCS2603S   25.5 cu. ft. Bottom-Freezer Refrigerator &#8211; PrintProof&#8482; Stainless Steel,1799.99,1498.96,Sears
+Kenmore,Kenmore 70762  18.3 cu. ft. Deluxe Top-Freezer Refrigerator eStar Certified w/ Factory Installed ice Maker - White,1120.99,579.88,Sears
+Samsung,Samsung 30 cu. ft. Mega Capacity 4-Door French Door Refrigerator with Four Types of Ice in Stainless Steel,3099.00,1899.00,Bluelight
+GE Appliances,GE Appliances GFE28GYNFS ENERGY STAR 27.7cu.ft. French Door Refrigerator - Stainless Steel,3299.99,1993.00,Sears
+LG,LG LRFWS2906S  29.0 cu. ft. French Door Refrigerator &#8211; PrintProof&#8482; Stainless Steel,2110.99,1599.96,Sears
+Samsung,"Samsung RF30BB6200QLAA Bespoke 3-Door French Door Refrigerator (30 cu ft) w/ AutoFill Pitcher in Fingerprint Resistant Stainless Steel, Standard Depth",2899.99,1699.99,Sears
+Frigidaire,Frigidaire FRSS2323AS 22.3 cu. ft. 33-Inch-Wide Side-by-Side Refrigerator &#8211; Stainless Steel,1499.99,1179.99,Sears
+GE Appliances,GE Appliances GNE25JGKBB 24.8 cu. ft. French Door Refrigerator - Black,1999.99,1799.96,Sears
+Samsung,"Samsung RS28A500ASR/AA 36"" 28 cu.ft. Stainless Steel Side-by-Side Refrigerator",1499.99,1349.99,Sears
+LG,LG LRFS28XBS  27.7 cu. ft. 3-Door French Door Refrigerator &#8211; PrintProof Stainless Steel,2399.99,1899.99,Sears
+Frigidaire,Frigidaire FRSS2323AW 22.3 cu. ft. 33-Inch-Wide Side-by-Side Refrigerator &#8211; White,1399.99,1179.99,Sears
+GE Appliances,"GE Appliances GTS19KGNRWW 30"" 19.2 cu.ft. White Top Freezer Refrigerator",949.99,699.99,Sears
+GE Appliances,GE Appliances GBE17HYRFS ENERGY STAR&#174; 17.7 Cu. Ft. Counter-Depth Bottom-Freezer Refrigerator - Stainless Steel,,1799.99,Sears
+GE Cafe,GE Cafe CYE22TP4MW2 22.2 cu. ft. Counter-Depth French Door Refrigerator w/ Hot Water Dispenser-White,4099.99,3689.99,Sears
+LG,LG LRMVS3006S  29.5 cu. ft. 4-Door InstaView&#8482; Door-in-Door&#174; Refrigerator w/ Craft Ice&#8482; &#8211; PrintProof&#8482; Stainless Steel,3799.99,2999.99,Sears
+Kenmore,Kenmore 70495  18.3 cu. ft. Top-Freezer Refrigerator with Factory Installed Ice Maker - Fingerprint Resistant Stainless Steel Look Finish,1100.99,629.88,Sears
+Frigidaire Gallery,Frigidaire Gallery GRSC2352AF  22.3 cu. ft. Counter-Depth Side-by-Side Refrigerator &#8211; Smudge-Proof&#174; Stainless Steel,1949.99,1299.99,Sears
+GE Cafe,GE Cafe CWE23SP4MW2 23.1 cu. ft. Counter-Depth French-Door Refrigerator - Matte White,3799.99,3419.99,Sears
+GE Appliances,"GE Appliances GYE22GENDS 36"" 22.1 cu.ft. Black Slate French Door Refrigerator",,3599.99,Sears
+GE Appliances,"GE Appliances GTS17DTNRWW 28"" 16.6 cu.ft. White Top Freezer Refrigerator",749.99,665.99,Sears
+Samsung,Samsung RF28R7351SG 28 cu. ft. 4-Door French Door Food Showcase Refrigerator - Black Stainless Steel,3699.99,3326.29,Sears
+GE Appliances,GE Appliances GSS25GMPES 25.3 Cu. Ft. Side-By-Side Refrigerator - Slate,1799.99,1332.99,Sears
+Frigidaire Gallery,Frigidaire Gallery GRFC2353AF  22.6 cu. ft. Counter-Depth French Door Refrigerator &#8211; Smudge-Proof&#174; Stainless Steel,3299.99,2099.99,Sears
+GE Profile Series,GE Profile Series PYE22KBLTS ENERGY STAR&#174; 22.2 cu. ft. Counter-Depth French Door Refrigerator - Black Stainless Steel,3799.99,3419.99,Sears
+Kenmore,Kenmore 73025  26.1 cu. ft. French Door Refrigerator with Ice Maker - Fingerprint Resistant Stainless Steel,2449.99,1499.88,Sears
+Frigidaire,Frigidaire FFTR2045VW  20.0 cu. ft. Top Freezer Refrigerator &#8211; White,949.99,679.99,Sears
+GE Appliances,GE Appliances GZS22DGJBB 21.9 cu. ft. Counter-Depth Side-by-Side Refrigerator - Black,2599.99,2339.96,Sears
+GE Appliances,GE Appliances GZS22DGJWW 21.9 cu. ft. Counter Depth Side-by-Side Refrigerator - White,2599.99,2339.96,Sears
+Samsung,Samsung RS27T5561SR/AA 26.7 cu. ft. Large Capacity Side-by-Side Refrigerator with Touch Screen Family Hub in Stainless Steel,2099.00,1599.99,Bluelight
+GE Appliances,GE Appliances GNE25JGKWW 24.8 cu. ft. French Door Refrigerator - White,1999.99,1799.96,Sears
+Frigidaire Gallery,Frigidaire Gallery FGHT2055VF  20.0 cu. ft. Top Freezer Refrigerator &#8211; Smudge-Proof&#174; Stainless Steel,1149.99,849.99,Sears
+GE Appliances,GE Appliances GNE25JMKES 25 cu. ft. French Door Refrigerator - Slate,2099.99,1889.96,Sears
+GE Appliances,"GE Appliances GFE26JGMWW 36"" 25.6 cu.ft. White French Door Refrigerator",2599.99,2339.96,Sears
+Kenmore,Kenmore 73029 26.1 cu. ft. French Door Refrigerator with Ice Maker - Black,2449.99,1499.88,Sears
+Frigidaire Gallery,Frigidaire Gallery GRFG2353AF  23.3 cu. ft. Counter-Depth French Door Refrigerator &#8211; Smudge-Proof&#174; Stainless Steel,2999.99,2099.99,Sears
+GE Appliances,"GE Appliances PSE25KYHFS 36"" 25.3cu.ft. Side By Side Refrigerator - Stainless Steel",,2499.99,Sears
+LG,LG LMXS28626S 27.8 cu. ft. 4-Door French Door Refrigerator &#8211; Stainless Steel,3099.99,1999.99,Sears
+GE Appliances,GE Appliances GNE27JGMWW 27 cu. ft. French Door Refrigerator - White,2299.99,2069.96,Sears
+LG,LG LMWC23626S  22.7 cu. ft. Counter Depth French Door Refrigerator with Double Freezer &#8211; PrintProof&#8482; Stainless Steel,2499.99,1899.99,Sears
+GE Appliances,"GE Appliances GNE27JYMFS 36"" 27 cu.ft. Stainless Steel French Door Refrigerator",2399.99,1599.99,Sears
+Samsung,Samsung RF28R7351SR 28 cu. ft. 4-Door French Door Food Showcase Refrigerator - Stainless Steel,3599.99,3236.39,Sears
+Samsung,Samsung RF22A4221SR/AA 22 cu. ft. Smart 3-Door French Door Refrigerator with External Water Dispenser in Fingerprint Resistant Stainless,1979.00,1599.00,Bluelight
+Kenmore,Kenmore 61262  21 cu. ft. Top-Freezer Refrigerator - White,1099.99,699.88,Sears
+Frigidaire,Frigidaire FFTR1814WW  18.3 cu. ft. Top Freezer Refrigerator &#8211; White,799.99,639.99,Sears
+Samsung,Samsung 31 cu. ft. Mega Capacity 3-Door French Door Refrigerator with Four Types of Ice in Stainless Steel,2899.00,1749.99,Bluelight
+GE Appliances,GE Appliances GSS25GGPWW 25.3 Cu. Ft. Side-By-Side Refrigerator - White,,1699.99,Sears
+Frigidaire,Frigidaire FRSS2323AD 22.3 cu. ft. 33-Inch-Wide Side-by-Side Refrigerator &#8211; Black Stainless Steel,1599.99,1129.99,Sears
+GE Appliances,GE Appliances GWE19JGLBB 18.6 cu. ft. Counter-Depth French Door Refrigerator - Black,1999.99,1799.96,Sears
+Kenmore,Kenmore 70492  18.3 cu. ft. Top-Freezer Refrigerator with Factory Installed Ice Maker - White,969.99,579.88,Sears
+Samsung,Samsung RF18A5101SR/AA 18 cu. ft. Stainless Steel Smart Counter Depth 3-Door French Door Refrigerator,1699.99,1299.99,Sears
+GE Appliances,GE Appliances GSE25GGPBB ENERGY STAR&#174; 25.3 Cu. Ft. Side-By-Side Refrigerator - Black,,1799.99,Sears
+GE Appliances,GE Appliances GNE27JGMBB 27 cu. ft. French Door Refrigerator - Black,2299.99,2069.96,Sears
+LG,LG LRSXS2706V  27.2 cu. ft. Side-by-Side Refrigerator w/ External Ice & Water Dispenser &#8211; Stainless Steel Look,1665.99,1199.99,Sears
+GE Appliances,GE Appliances GSS23GGPBB 23.0 Cu. Ft. Side-By-Side Refrigerator - Black,,1699.99,Sears
+Frigidaire,Frigidaire FFTR1835VW  18.3 cu. ft. Top Freezer Refrigerator &#8211; White,849.99,649.99,Sears
+Kenmore,Kenmore 70499  18.3 cu. ft. Top-Freezer Refrigerator with Factory Installed Ice Maker - Textured Black,969.99,629.88,Sears
+Frigidaire,Frigidaire FRQG1721AV  17.4 cu. ft. 4 Door Refrigerator &#8211; Brushed Steel,1699.99,1249.99,Sears
+Frigidaire,Frigidaire FRSS2623AB 25.6 cu. ft. Side-by-Side Refrigerator &#8211; Black,1399.99,1099.99,Sears
+Frigidaire Gallery,Frigidaire Gallery GRSS2652AD  25.6 cu. ft. Side-by-Side Refrigerator with Ice & Water Dispenser &#8211; Smudge-Proof&#174; Black Stainless Steel,1849.99,1299.99,Sears
+Frigidaire Gallery,Frigidaire Gallery GRSC2352AD  22.3 cu. ft. Counter-Depth Side-by-Side Refrigerator &#8211; Smudge-Proof&#174; Black Stainless Steel,2049.99,1399.99,Sears
+LG,LG LRBCC1204S  12 cu. ft. 23.5&#8221;-wide Counter-Depth Bottom-Freezer Refrigerator &#8211; PrintProof&#8482; Stainless Steel,,1999.99,Sears
+GE Appliances,GE Appliances GSS23GGPWW 23.0 Cu. Ft. Side-By-Side Refrigerator - White,,1699.99,Sears
+GE Appliances,"GE Appliances GFE26JYMFS 36"" 25.6 cu.ft. Stainless Steel French Door Refrigerator",,2699.99,Sears
+Samsung,"Samsung RF29BB8600QLAA Bespoke 4-Door French Door Refrigerator (29 cu ft) with Beverage Center in Fingerprint Resistant Stainless Steel, Standard Depth",3699.99,2599.99,Sears
+GE Appliances,"GE Appliances GIE19JSNRSS 30"" 19.2 cu.ft. Stainless Steel Top Freezer Refrigerator",1329.99,1196.96,Sears
+Kenmore,Kenmore 71219  21 cu. ft. Top-Freezer Refrigerator with Ice Maker - Black,1249.99,799.88,Sears
+GE Appliances,GE Appliances GSS23GMPES 23.0 Cu. Ft. Side-By-Side Refrigerator - Slate,,1799.99,Sears
+Frigidaire,Frigidaire FFTR2045VB  20.0 cu. ft. Top Freezer Refrigerator &#8211; Black,949.99,679.99,Sears
+LG,LG LRMDC2306S  22.5 cu. ft. Counter Depth 4-Door Refrigerator w/ Door-in-Door&#174; & Craft Ice&#8482; &#8211; Stainless Steel,3599.99,2899.99,Sears
+GE Appliances,"GE Appliances GTS22KGNRBB 33"" 21.9 cu.ft. Black Top Freezer Refrigerator",1099.99,888.99,Sears
+GE Profile Series,GE Profile Series PVD28BYNFS -36 Inch 4-Door French Door Smart Refrigerator with 27.9 Cu. Ft. Capacity,,4199.99,Sears
+Frigidaire Gallery,Frigidaire Gallery GRFS2853AD  27.8 cu. ft. French Door Refrigerator &#8211; Smudge-Proof&#174; Black Stainless Steel,2999.99,2099.99,Sears
+GE Appliances,GE Appliances GDE21EGKWW 20.9 cu. ft. Single Door Bottom Freezer Refrigerator - White,1899.99,1709.96,Sears
+Frigidaire,Frigidaire FFTR1835VS  18.3 cu. ft. Top Freezer Refrigerator &#8211; Stainless Steel,949.99,739.99,Sears
+GE Appliances,"GE Appliances GIE18GSNRSS 28"" 17.5 cu.ft. Stainless Steel Top Freezer Refrigerator",1079.99,971.96,Sears
+Frigidaire,Frigidaire FFHT2045VW  20.0 cu. ft. Top Freezer Refrigerator &#8211; White,999.99,899.96,Sears
+Samsung,Samsung RZ11M7074SA/AA 11.4 cu. ft. Capacity Convertible Upright Freezer in Stainless Look,,809.00,Bluelight
+LG,LG LMWS27626S   26.9 cu. ft. Ultra-Capacity 4-Door French Door Refrigerator - PrintProof&#8482; Stainless Steel,2399.99,1599.99,Sears
+Kenmore,Kenmore 61332  20.5 cu. ft. Top Freezer Refrigerator &#8211; White,,949.99,Sears
+Frigidaire,Frigidaire FFET1222UW  11.6 cu. ft. Top Freezer Apartment-Size Refrigerator - 24&#8221; width - White,829.99,746.96,Sears
+GE Appliances,GE Appliances GSE25GGPWW ENERGY STAR&#174; 25.3 Cu. Ft. Side-By-Side Refrigerator - White,,1799.99,Sears
+LG,LG LRONC0705V  6.9 cu. ft. Single Door Refrigerator w/ Freezer Compartment &#8211; Platinum Silver,,549.99,Sears
+Samsung,"Samsung 25 cu. ft. 33"" 3-Door French Door Refrigerator with Beverage Center in Stainless Steel",2399.00,2159.00,Bluelight
+GE Appliances,"GE Appliances GTS22KMNRES 33"" 21.9 cu.ft. Slate Top Freezer Refrigerator",1199.99,999.99,Sears
+Kenmore,Kenmore 62312  18.2 cu. ft. Top Freezer Refrigerator &#8211; White,,899.99,Sears
+NewAir,NewAir Stone® Brewing 126 Can Beverage Refrigerator and Cooler with SplitShelf™ and Adjustable Shelves for Beer and Soda,458.33,329.99,Newair
+GE Profile Series,GE Profile Series PWE23KELDS 23.1 Cu. Ft. Counter-Depth French-Door Refrigerator - Black Slate,3399.99,3059.99,Sears
+Samsung,Samsung Bespoke 3-Door French Door Refrigerator (30 cu. ft.) with AutoFill Water Pitcher in White Glass,2899.00,1799.00,Bluelight
+GE Appliances,GE Appliances GSE23GYPFS GE&#174; ENERGY STAR&#174; 23.0 Cu. Ft. Side-By-Side Refrigerator - Stainless Steel,,1899.99,Sears
+Samsung,Samsung RS27T5200SG/AA 27.4 cu. ft. Large Capacity Side-by-Side Refrigerator in Black Stainless Steel,1599.00,1249.99,Bluelight
+NewAir,"NewAir Shadow-Tᵀᴹ Series Wine Cooler Refrigerator, 8 Bottle Countertop Mirrored Compact Wine Cellar with Triple-Layer Tempered ",229.99,199.99,Newair
+LG,LG LMXS28626D   27.8 cu. ft. Smart Wi-Fi Enabled 4-Door French Door Refrigerator - Black Stainless Steel,3199.99,2099.99,Sears
+Frigidaire,Frigidaire FFET1222UB  11.6 cu. ft. Top Freezer Apartment-Size Refrigerator - 24&#8221; width - Black,829.99,746.96,Sears
+NewAir,"NewAir Shadow-Tᵀᴹ Series Wine Cooler Refrigerator, 12 Bottle Countertop Mirrored Compact Wine Cellar with Triple-Layer Tempered",,249.99,Newair
+LG,LG LMXS28596S 27.6 cu. ft. Smart French Door Refrigerator w/ InstaView - Stainless Steel,,3699.99,Sears
+NewAir,"NewAir Stone® Brewing 180 Can FlipShelf™ 24"" Built-In Beverage and Beer Refrigerator",799.99,399.99,Newair
+GE Appliances,GE Appliances GNE27JMMES 27 cu. ft. French Door Refrigerator - Slate,2399.99,1777.99,Sears
+GE Cafe,GE Cafe CFE28TP4MW2 27.8 cu. ft. French Door Refrigerator with Hot Water Dispenser - White,3899.99,3509.99,Sears
+GE Appliances,GE Appliances GNE21FYKFS ENERGY STAR&#174; 20.8 Cu. Ft. French-Door Refrigerator - Stainless Steel,,1999.99,Sears
+GE Appliances,GE Appliances GSE25GYPFS ENERGY STAR&#174; 25.3 Cu. Ft. Side-By-Side Refrigerator - Stainless Steel,,1899.99,Sears
+GE Appliances,"GE Appliances GTS22KMNRDS 33"" 21.9 cu.ft. Black Slate Top Freezer Refrigerator",1199.99,999.99,Sears
+GE Appliances,GE Appliances GZS22DMJES 21.9 cu. ft. Counter Depth Side-by-Side Refrigerator - Slate,2699.99,2429.96,Sears
+LG,LG LRBNC1104S  11 cu. ft. 23.42&#8221;-wide Bottom-Freezer Refrigerator with Door Cooling+ &#8211; PrintProof&#8482; Stainless Steel,,1499.99,Sears
+NewAir,NewAir Arrogant Bastard 125 Can Beer Froster Beverage Refrigerator with Fast Frosting Modes,848.88,399.99,Newair
+Samsung,"Samsung RF28T5001SG/AA 36"" 28 cu.ft. Black Stainless Steel  French Door Refrigerator",2299.99,2069.96,Sears
+GE Appliances,GE Appliances GWE19JMLES 18.6 cu. ft. Counter-Depth French Door Refrigerator - Slate,2099.99,1889.96,Sears
+Frigidaire,Frigidaire FFPS3133UM  3.1 cu. ft. Compact Refrigerator - Silver Mist,264.99,237.96,Sears
+NewAir,"NewAir Stone® Brewing Live Buena Beverage Refrigerator and Cooler, 60 Can Buenaveza Lager Mini Fridge with Glass Door",402.78,289.99,Newair
+GE Appliances,GE Appliances GYE18JMLES ENERGY STAR&#174; 17.5 Cu. Ft. Counter-Depth French Door Refrigerator - Slate,2799.99,2519.96,Sears
+NewAir,"NewAir 60 Can Beverage Fridge with Glass Door, Small Freestanding Mini Fridge",277.78,199.99,Newair
+LG,LG LRMVS2806D  27.6 cu. ft. InstaView&#174; Door-in-Door&#174; Double Freezer Refrigerator with Craft Ice&#8482; &#8211; PrintProof&#8482; Black Stainless Steel,,3999.99,Sears
+GE Cafe,GE Cafe CWE23SP3MD1 23.1 cu. ft. Counter-Depth French-Door Refrigerator - Matte Black,3799.99,3419.99,Sears
+Frigidaire Gallery,Frigidaire Gallery FGHT2055VD  20.0 cu. ft. Top Freezer Refrigerator &#8211; Smudge-Proof&#174; Black Stainless Steel,1249.99,899.99,Sears
+GE Appliances,GE Appliances GYE18JYLFS ENERGY STAR&#174; 17.5 Cu. Ft. Counter-Depth French-Door Refrigerator - Stainless Steel,,2799.99,Sears
+Frigidaire,"Frigidaire FFHT1425VB  13.9 cu. ft. Top Freezer Refrigerator with EvenTemp&#8482;, ADA Compliant &#8211; Black",779.99,629.99,Sears
+GE Appliances,"GE Appliances GFE26JGMBB 36"" 25.6 cu.ft. Black French Door Refrigerator",2599.99,2339.96,Sears
+GE Appliances,"GE Appliances GTS18GSNRSS 28"" 17.5 cu.ft. Stainless Steel Top Freezer Refrigerator",899.99,809.96,Sears
+Samsung,Samsung Bespoke Counter Depth 4-Door Refrigerator (23 cu. ft.) with Family in Charcoal Glass Top and Stainless Steel Bottom Panels,5099.00,3499.00,Bluelight
+GE Profile Series,"GE Profile Series PWE23KYNFS 36"" 23.1 cu.ft. Stainless Steel French Door Refrigerator",3299.99,2969.99,Sears
+Samsung,Samsung RT16A6195SR/AA 15.6 cu. ft. Top Freezer Refrigerator with All-Around Cooling in Stainless Steel,,764.00,Bluelight
+LG,LG LFXS28968S   27.9 cu. ft. Smart Wi-Fi Enabled French Door Refrigerator - Stainless Steel,,2999.99,Sears
+LG,LG LFXC22596S 21.9 cu. ft. Smart Door-in-Door Refrigerator w/ InstaView - Stainless,,3499.99,Sears
+LG,LG LFXS28596S 27.5 cu. ft. Smart Wi-Fi Enabled 3-Door French Door InstaView&#8482; Refrigerator - SS,,3349.97,Sears
+GE Appliances,GE Appliances GFE26JEMDS 25.5 cu. ft. French Door Refrigerator - Black Slate,,2799.99,Sears
+LG,LG LFXS26973D 26.2 cu. ft. Smart Wi-Fi Enabled 3-Door French Door Refrigerator - Black SS,,2899.99,Sears
+LG,LG LRSDS2706D   27.1 cu. ft. Side-by-Side Door-in-Door&#174; Refrigerator w/ Craft Ice&#8482; - PrintProof&#8482; Black Stainless Steel,,2332.99,Sears
+Frigidaire,Frigidaire FFHT1835VS  18.3 cu. ft. Top Freezer Refrigerator &#8211; Stainless Steel,999.99,899.96,Sears
+Frigidaire,"Frigidaire FFET1022UV  10.1 cu. ft. Top Freezer Apartment-Size Refrigerator - 24"" width - Brushed Steel",829.99,746.96,Sears
+Samsung,Samsung Bespoke 4-Door French Door Refrigerator (23 cu. ft.)  in Charcoal Glass and Matte Black Steel Middle and Bottom Panels,4499.00,2999.00,Bluelight
+GE Appliances,GE Appliances GDE03GLKLB Double-Door Compact Refrigerator,,409.99,Sears
+Kenmore,Kenmore 62315  18.2 cu. ft. Top Freezer Refrigerator &#8211; Stainless Steel w/Fingerprint Resistance,,999.99,Sears
+Frigidaire,Frigidaire FFHT2045VB  20.0 cu. ft. Top Freezer Refrigerator &#8211; Black,999.99,899.96,Sears
+Hotpoint,Hotpoint HME03GGMBB 2.7 cu. ft. Compact Refrigerator with ENERGY STAR&reg; Certified - Black,,249.99,Sears
+GE Cafe,GE Cafe CFE28TP3MD1 27.8 cu. ft. French Door Refrigerator with Hot Water Dispenser - Matte Black,3899.99,3509.99,Sears
+Haier,Haier 1.7 Cu. Ft. Compact Refrigerator with Half-Width Freezer Compartment,186.57,127.87,eBuzz
+LG,LG LRFXC2416S  23.5 cu. ft. French Door Counter Depth Refrigerator w/ Craft Ice&#8482; &#8211; PrintProof&#8482; Stainless Steel,,3799.99,Sears
+GE Appliances,"GE Appliances GLE12HSPSS 24"" 11.9 cu.ft. Stainless Steel Built-In Bottom Freezer",,1949.99,Sears
+LG,LG LRMXC2206S  22.0 cu.ft. Smart Wi-Fi Enabled Counter Depth Double Freezer Refrigerator &#8211; PrintProof&#8482; Stainless Steel,,3399.99,Sears
+Arctic King,"Arctic King 3.2 Cu Ft Two Door Mini Fridge with Freezer, Black",399.00,288.84,eBuzz
+LG,LG LMXS28596D 27.6 cu. ft. Smart French Door Refrigerator w/ InstaView &#8211; Black Stainless Steel,,3799.99,Sears
+GE Profile Series,GE Profile Series PYE22KMKES 22.2 cu. ft. French Door Bottom-Freezer Refrigerator - Slate,3699.99,3329.99,Sears
+GE Appliances,"GE Appliances GTS19KMNRES 30"" 19.2 cu.ft. Slate Top Freezer Refrigerator",1049.99,888.99,Sears
+Frigidaire,Frigidaire FFHT2045VS  20.0 cu. ft. Top Freezer Refrigerator &#8211; Stainless Steel,1099.99,989.96,Sears
+Impecca,Impecca RF-4191WW 33 4 Door French Door Refrigerator 18.9 cu. ft. in White,1763.99,1259.99,Appliances Connection
+LG,"LG LRFXS2503D  24.5 cu. ft. French Door Refrigerator, 33"" Wide w/Dispenser &#8211; Black Stainless Steel",2699.99,2399.99,Sears
+GE Appliances,"GE Appliances GTS19KGNRBB 30"" 19.2 cu.ft. Black Top Freezer Refrigerator",949.99,699.99,Sears
+LG,LG LMXS28626S 28 cu.ft. Smart wi-fi Enabled French Door Refrigerator,,2864.45,Tanner Appliance
+GE Profile Series,"GE Profile Series PYD22KYNFS 36"" 22.1 cu.ft. Stainless Steel French Door Refrigerator",3999.99,3599.99,Sears
+GE Appliances,GE Appliances GSS25IMNES 25.1 cu. ft. Side-By-Side Refrigerator - Slate,,1999.99,Sears
+GE Appliances,GE Appliances GCE06GSHSB Compact Refrigerator,,609.99,Sears
+Summit,"Summit FFRF3075WSS 30"""" Side-by-Side Compact Refrigerator and Freezer with 5.4 cu. ft. Capacity  LED Lighting  Frost Free Operation  Hi",3429.99,2449.99,Appliances Connection
+LG,LG LRFXC2416D  23.5 cu. ft. French Door Counter Depth Refrigerator w/ Craft Ice&#8482; &#8211; PrintProof&#8482; Black Stainless,,3899.99,Sears
+Kenmore,Kenmore 61339  20.5 cu. ft. Top Freezer Refrigerator &#8211; Black,,949.99,Sears
+Forte,"Forte F12Bfres450Rbl 24Inch 450 Series Bottom Freezer Retro Refrigerator With 1165 Cu Ft Capacity, Adjustable Glass Shelves, Cri",2380.83,1428.50,Ami Ventures Inc
+LG,LG LRFVC2406D  23.5 cu. ft. 3-Door InstaView&#8482; w/ Craft Ice&#8482;   Door-in-Door&#174; Counter-Depth Refrigerator&#8211; PrintProof&#8482; Black Stainless,,4599.99,Sears
+LG,LG LFXS26596S  26 cu. ft. Smart Wi-Fi Enabled French Door InstaView&#8482; Refrigerator - SS,,3399.99,Sears
+Frigidaire,Frigidaire FFHT1835VW  18.3 cu. ft. Top Freezer Refrigerator &#8211; White,899.99,809.96,Sears
+GE Appliances,GE Appliances PZS22MYKFS Profile 21.9cu.ft. Counter Depth Side By Side Refrigerator,,3399.99,Sears
+Frigidaire,"Frigidaire FFET1022UW  10.1 cu. ft. Top Freezer Apartment-Size Refrigerator - 24"" width - White",779.99,701.96,Sears
+Frigidaire,Frigidaire FFET1222UV  11.6 cu. ft. Top Freezer Apartment-Size Refrigerator - 24&#8221; width - Brushed Steel,899.99,809.96,Sears
+Frigidaire,"Frigidaire Deals Grsc2352Af 36 Freestanding Counter Depth Side By Side Refrigerator With 222 Cu Ft Capacity, 3 Glass Shelves, Ice Maker, Automati",3328.55,1997.13,Ami Ventures Inc
+GE Appliances,"GE Appliances PFD28KYNFS 36"" 27.7 cu.ft. Stainless Steel French Door Refrigerator",3799.99,3419.96,Sears
+LG,LG LFCC23596S  22.6 cu. ft. Counter Depth French Door InstaView&#8482; Door-in-Door&#174; Refrigerator &#8211; PrintProof&#8482; Stainless Steel,,2899.99,Sears
+Samsung,Samsung Bespoke 3-Door French Door Refrigerator (24 cu. ft.)  in White Glass and Matte Grey Glass Bottom Door Panel,4199.00,2699.00,Bluelight
+GE Appliances,"GE Appliances PYE22KYNFS 36"" 22.1 cu.ft. Stainless Steel  French Door Refrigerator",,3699.99,Sears
+Hotpoint,Hotpoint HPS18BTNRWW  17.5 Cu. Ft. Top-Freezer Refrigerator - White,,679.99,Sears
+Samsung,Samsung RF28T5F01SG 28 cu. ft. 3-Door French Door Refrigerator with Family Hub(TM) in Black Stainless Steel,,3099.00,Tanner Appliance
+LG,LG LRMVS2806S  27.6 cu. ft. InstaView&#174; Door-in-Door&#174; Double Freezer Refrigerator with Craft Ice&#8482; &#8211; PrintProof&#8482; Stainless Steel,,3899.99,Sears
+GE Profile Series,GE Profile Series PYE22KELDS 22.2 cu. ft. French Door Refrigerator with Hands-Free AutoFill - Black Slate,,3799.99,Sears
+GE Appliances,"GE Appliances PFE28KYNFS 36"" 27.7 cu.ft. Stainless Steel French Door Refrigerator",,3499.99,Sears
+GE Appliances,"GE Appliances GTS18DTNRBB 28"" 17.5 cu.ft. Black Top Freezer Refrigerator",849.99,764.96,Sears
+GE Appliances,GE Appliances GDE03GGKBB Double-Door Compact Refrigerator,,389.99,Sears
+Samsung,Samsung RF28R6201SR/AA 28 cu. ft. French Door Refrigerator with CoolSelect Pantry - Stainless Steel,,2899.99,Sears
+GE Appliances,GE Appliances GSS23GGPCC 23.0 Cu. Ft. Side-By-Side Refrigerator - Bisque,,1699.99,Sears
+CAFE,"CAFE CWE19SP4NW2 33 Inch, 18.6 Cu. Ft. Freestanding Counter Depth French Door Smart Refrigerator with Ice Maker",,2615.67,Tanner Appliance
+Equator Advanced Appliances,"Equator Advanced Appliances Conserv 24"" Wide 10 cu.ft.Top Freezer Refrigerator Stainless",1659.00,999.00,Equator Advanced Appliances
+Bevoi,BEVOI BVIREF7SS 7.4 CF Two Door Apartment Size Refrigerator Stainless Steel,719.00,619.00,Varouj Appliances
+Miller,Miller Koolatron MLVIC-13 13 Ltr Miller Light Ice Chest,269.98,107.99,"UnbeatableSale.com, Inc."
+Coca-Cola,Coca-Cola Love 1971 Series 4L Cooler/Warmer 12V DC 110V AC Mini Fridge,89.99,79.99,Sears
+GE Appliances,GE Appliances GTS18HGNRWW GE 17.5 Cu. Ft. Top-Freezer Refrigerator - White,,899.00,Sears
+Frigidaire,Frigidaire FRTD2021AB  20.5 Cu. Ft. Top Freezer Refrigerator &#8211; Black,929.99,679.99,Sears
+GE Appliances,GE Appliances GDE03GGKWW Double-Door Compact Refrigerator,,389.99,Sears
+Liebherr,Liebherr MRB-3600 36 Monolith Refrigerator Column with InfinityLight  Supercool  SoftSystem  BioFresh Plus  in Panel Ready,13018.60,9299.00,Appliances Connection
+Forte,Forte FFD21ESCSS 36 French Door Refrigerator with 20.9 cu. ft. Total Capacity  Counter Depth  Energy Star  Internal Water Dispen,2518.60,1799.00,Appliances Connection
+Equator Advanced Appliances,Equator Advanced Appliances 24 in. 11 cu. ft. Classic Retro Single Door Refrigerator in Cream,1999.99,1509.00,Equator Advanced Appliances
+Equator Advanced Appliances,"Equator Advanced Appliances Conserv 10.7 cu. ft. Bottom Mount Retro Refrigerator in Red, Black, or Cream",1899.00,1299.00,Equator Advanced Appliances
+Danby,Danby DAR110A3MDB 24 Midnight Metallic Black Contemporary Classic Apartment Size Refrigerator 11 cu. ft.,1553.99,1109.99,Appliances Connection
+Danby,Danby DCR047A1BBSL 19 Energy Star Compact Refrigerator with 4.7 cu. ft. Total Capacity in Black Stainless Steel,839.99,599.99,Appliances Connection
+Equator Advanced Appliances,Equator Advanced Appliances Conserv 14 cu.ft. Garage Convertible Ref/Freezer 0°F-110°F,2109.00,1199.00,Equator Advanced Appliances
+Samsung,"Samsung RF24BB69006MAA Bespoke 3-Door French Door Refrigerator (24 cu. ft.) w/Family Hub&#8482; Panel in White Glass & Matte Gray, Counter Depth",,4199.99,Sears
+Samsung,Samsung RF30BB6600APAA Bespoke 3-Door French Door Refrigerator (30 cu. ft.) with Customizable Door Panel Colors and Beverage Center&#8482;,,4099.99,Sears
+Samsung,"Samsung RF24BB6200QLAA Bespoke 3-Door French Door Refrigerator (24 cu ft) w/AutoFill Pitcher in Fingerprint Resistant Stainless Steel, Counter Depth",2999.99,2999.88,Sears
+GE Appliances,GE Appliances GSS25IGNBB 25.1 cu. ft. Side-By-Side Refrigerator - Black,,1899.99,Sears
+GE Appliances,GE Appliances GSE23GGPWW ENERGY STAR 23.0 Cu. Ft. Side-By-Side Refrigerator - White,,1799.99,Sears
+Summit,Summit FFBF241W 24 Bottom Freezer Refrigerator with 11.35 cu. ft. Capacity  Crisper Drawer  Ultra Quiet Operation  in White,2337.99,1669.99,Appliances Connection
+Danby,Danby 4.4cu.ft. Outdoor Compact Refrigerator - Stainless Steel,,519.99,KART IT
+Magic Chef,Magic Chef Mcbr350B2 3.5 Cubic-Foot Mini Refrigerator (Black),,329.27,jBUYj
+Samsung,Samsung RF28R7201SG 28 cu. ft. 4-Door French Door Refrigerator - Black Stainless Steel,3299.99,3299.96,Sears
+GE Appliances,GE Appliances GFE24JMKES 23.8 cu. ft. French Door Refrigerator - Slate,2799.99,2519.96,Sears
+GE Appliances,"GE Appliances GTE16DTNLWW 28"" 15.6 cu.ft. White Top Freezer Refrigerator",799.99,719.96,Sears
+Hotpoint,Hotpoint HPE16BTNLWW  15.6 Cu. Ft. Top-Freezer Refrigerator - White,,679.99,Sears
+BLACK+DECKER,"BLACK+DECKER 3.2 Cu. Ft. Compact Refrigerator,White",379.99,259.99,My Home Products LLC
+GE Appliances,"GE Appliances PYE22PYNFS 36"" 22.1 cu.ft. Stainless Steel French Door Refrigerator with Autofill",,3999.99,Sears
+Samsung,Samsung RF22R7351SR 22 cu. ft. 4-Door French Door Food Showcase Refrigerator - Stainless Steel,,3599.99,Sears
+LG,LG LRMXS2806D  27.8 cu. ft. 4-Door French Door Refrigerator with Craft Ice&#8482; - Black Stainless Steel,,3399.99,Sears
+GE Appliances,GE Appliances GPV10FSNSB 9.8cu.ft. 12V DC Top Freezer Refrigerator - Stainless Steel,,1299.99,Sears
+GE Appliances,GE Appliances GTS18HGNRBB GE 17.5 Cu. Ft. Top-Freezer Refrigerator -  Black,,899.00,Sears
+GE Appliances,"GE Appliances GTS18DTNRWW 28"" 17.5 cu.ft. White Top Freezer Refrigerator",849.99,764.96,Sears
+GE Appliances,"GE Appliances GTE16DTNRWW 28"" 15.6 cu.ft. White Top Freezer Refrigerator",799.99,719.96,Sears
+Kucht,"KUCHT 36"" Built-In-Refrigerator",,8750.00,KUCHT
+Kucht,"KUCHT 30"" Built-In-Refrigerator",,6600.00,KUCHT
+LG,LG LFXS26973S 26 cu. ft. Smart wi-fi Enabled French Door Refrigerator,,2686.53,Tanner Appliance
+Blomberg,"Blomberg BRFB1822SSN 30"" Bottom Freezer with 18 cu. ft. Capacity  Ice Maker and Wrapped Stainless Steel Doors",2659.99,1899.99,Appliances Connection
+Galanz,"Galanz 12 CF 3-Door Bottom Mount Refrigerator, 24"" Wide, Icemaker",2399.98,1499.99,Vir Ventures
+Equator Advanced Appliances,"Equator Advanced Appliances Conserv 10.7 cu. ft. Bottom Mount Retro Refrigerator in Red, Black, or Cream",2059.00,1349.00,Equator Advanced Appliances
+Equator Advanced Appliances,"Equator Advanced Appliances Conserv 2.6 cu.ft. Compact Refrigerator-Stainless, Reversible Door",509.00,249.00,Equator Advanced Appliances
+Uber Appliance,"Uber Appliance UB-XL1 Uber Chill 12 can 9 Liter retro personal mini fridge for bedroom, office or dorm",,129.99,KNG International
+Coca-Cola,Coca-Cola Heritage 12 Can Portable Cooler/Warmer AC/DC 7.9L,119.99,104.99,Sears
+Coca-Cola,"Coca-Cola Retro Ice Chest Style Electric Cooler, 12V DC 110V AC 6 Can Mini Fridge",89.99,77.99,Sears
+Samsung,Samsung RF23BB8600QLAA Bespoke 4-Door French Door Refrigerator (23 cu. ft.) with Beverage Center&#8482; in Stainless Steel,,3799.99,Sears
+Kenmore,Kenmore 72315  18.1 cu. ft. Top Freezer Refrigerator with Icemaker &#8211; Stainless Steel w/Fingerprint Resistance,,1099.99,Sears
+GE Appliances,"GE Appliances GTE18GTNRCC 28"" 17.5 cu.ft. Bisque Top Freezer Refrigerator",949.99,854.96,Sears
+GE Appliances,"GE Appliances GPE17CTNRWW 28"" 16.6 cu.ft. White Top Freezer Refrigerator",,799.99,Sears
+Liebherr,Liebherr CBS1661 30 Energy Star Rated Freestanding Left Hinge Bottom Freezer Refrigerator  in Stainless Steel,6998.60,4999.00,Appliances Connection
+AccuCold,AccuCold 10.1 cu.ft. upright auto defrost medical/scientific all-refrigerator with digital thermostat and NIST calibrated thermometer/a,4017.58,2510.99,Vir Ventures
+IIO,iio ALBR1372WR 24 inch RM1 RetroMod Frost Free Bottom Freezer Refrigerator with 11 cu. ft. Capacity MultiFlow Cooling Super Fres,2253.99,1609.99,Appliances Connection
+Summit Appliance,"Summit Appliance Summit FF64BSS 24"""" 4.6 Cu. Ft. Built-In Undercounter All Refrigerator with Stainless Steel Door  Digital Thermostat  Adjustable Glass",1945.99,1389.99,Appliances Connection
+Cooler Depot,Cooler Depot 35 in. 7.4 cu. ft. 2 Glass Door Counter Height Back Bar Cooler Refrigerator with LED Lighting in Black,1600.00,1231.00,Cooler Depot
+Equator Advanced Appliances,"Equator Advanced Appliances Conserv 24"" Wide 10.8 cu.ft.Bottom Freezer Refrigerator Stainless",1699.00,1099.00,Equator Advanced Appliances
+KoolMore,Koolmore DC-3CB Commercial Glass Bakery Display Case 4 Tier Self Service Pastry Case With Led Lighting And Rear Door - 2.7 Cu. F,1119.99,799.99,Appliances Connection
+Costway,Costway 3.2 Cu.Ft. Compact Refrigerator Mini Dorm Small Fridge Freezer Reversible Door,359.99,239.99,factorydirectsale
+Haier,Haier HA10TG21SW 24 Top Freezer Refrigerator with 9.8 cu. ft. Total Capacity  Frost-Free and Glass Shelves in white,881.99,629.99,Appliances Connection
+Samsung,Samsung RF27T5501SG/AA 27 cu. ft. French Door Refrigerator with Family Hub&#8482; -  Black Stainless Steel,,3499.99,Sears
+GE Profile Series,GE Profile Series PFE28KMKES 27.8 cu. ft. French Door Refrigerator - Slate,3499.99,3149.99,Sears
+Blomberg,"Blomberg BRFB1900FBI 30"" Bottom Freezer Built In Refrigerator  in Panel Ready",7978.60,5699.00,Appliances Connection
+Liebherr,Liebherr CS1400RIM 30 Energy Star Rated Freestanding Bottom Freezer Refrigerator with 12.8 cu. ft. Capacity in Stainless Steel,3988.60,2849.00,Appliances Connection
+Summit,Summit FFRF36 36 Side by Side Refrigerator-Freezer 5.8 cu. ft. in Stainless Steel,2729.99,1949.99,Appliances Connection
+Forte,Forte FFD27ESSSS 36 French Door Refrigerator with 26.6 cu. ft. Total Capacity  Energy Star  Internal Water Dispenser  No Frost,2547.99,1819.99,Appliances Connection
+Equator Advanced Appliances,Equator Advanced Appliances RR 1100 R,2009.00,1409.00,Equator Advanced Appliances
+Danby,Danby DAR110A3LDB 24 Scarlett Metallic Red Contemporary Classic Apartment Size Refrigerator 11 cu. ft.,1553.99,1109.99,Appliances Connection
+Koolatron,Koolatron KTCF50 Tool Chest fridge,1476.82,636.83,"UnbeatableSale.com, Inc."
+Keystone,Keystone 4.4 Cu. Ft. Refrigerator with Freezer Compartment - White,,305.00,KART IT
+Costway,Costway STAKOL 3 cu.ft. Compact Upright Freezer w/Single Stainless Steel Door Removable Shelves,389.99,259.99,factorydirectsale
+Frigidaire(R),Frigidaire(R) Frigidaire EFMIS9000 2.6-Cubic-Foot 88-Can Glass Door Beverage Center Compact Refrigerator,410.59,256.62,Vir Ventures
+Cooluli,"Cooluli Vibe Mini Fridge For Bedroom - With Cool Front Magnetic Blackboard - 15L Portable Small Refrigerator For Travel, Car & O",236.00,141.60,FastMedia
+Ukonic,"Ukonic Marvel comics Spider-Man 4-Liter Mini Fridge Thermoelectric cooler, Holds 6 cans Small Refrigerator Drink cooler for Soda, Beer,",190.45,114.27,FastMedia
+Xtrempro,Xtrempro Portable 4 Liter Cooler and Warmer Compact Mini Refrigerator Pink w/ Eraser Board for Home Car,99.99,49.99,GCIG INC
+Samsung,Samsung RF24BB660012AA Bespoke 3-Door French Door Refrigerator (24 cu. ft.) with Beverage Center&#8482; in White Glass,,4099.99,Sears
+Samsung,"Samsung RF24BB6600APAA 36"" BESPOKE Counter-Depth 3 Door French Door Refrigerator with Beverage CenterTM",,4099.99,Sears
+Samsung,Samsung RS27T5561SG/AA 26.7 cu. ft. Black Stainless Steel Family Hub Side-by-Side Smart Refrigerator,2443.99,2199.96,Sears
+Kenmore,"Kenmore 71335  20.4 cu. ft. Top Freezer Refrigerator w/ Icemaker, 33"" Wide &#8211; Stainless Steel w/Fingerprint Resistance",,1149.99,Sears
+GE Appliances,"GE Appliances GTE19JTNRWW 30"" 19.2 cu.ft. White Top Freezer Refrigerator",1079.99,971.96,Sears
+GE Appliances,"GE Appliances GIE18GTNRWW 28"" 17.5 cu.ft. White Top Freezer Refrigerator",1029.99,926.96,Sears
+GE Appliances,"GE Appliances GTS16DTNRWW 28"" 15.6 cu.ft. White Top Freezer Refrigerator",,729.99,Sears
+Dacor,Dacor DRR24980RAP 24 Contemporary Series Column Refrigerator,10498.60,7499.00,Appliances Connection
+U-line,U-line UHRE518-SG01A 5 Class 18 Refrigerator with 3.7 cu. ft. Capacity  Three Slide & Secure Bins  LED Lighting and Soft Close Door in,5920.60,4229.00,Appliances Connection
+Fulgor Milano,Fulgor Milano F6FBM36S1 36in Stainless Steel French Door Refrigerator: 19.86 cu. ft. Capacity|Internal Water Dispenser|3-Level Freezer Baskets,4618.60,3299.00,Appliances Connection
+Cooler Depot,Cooler Depot 72 in. W 15.5 cu. ft. Commercial Under Counter Refrigerator Cooler in Stainless Steel,3200.00,2381.00,Cooler Depot
+Forno,Forno FFFFD1907-33SB 33 Stainless Steel 4-Door French Door Refrigerator 18.88 cu. ft.,3162.60,2259.00,Appliances Connection
+ICEJUNGLE,"IcEJUNgLE Beer Tap Kegerator,Kegerators Beer Dispenser Beverage Beer cooler Water cooler Dispenser 5 gallon,Full Size Keg,14 Keg",3532.83,2119.70,FastMedia
+Summit,"Summit 24"""" Energy Star Certified Bottom Freezer Refrigerator  Left Hinge",2519.99,1799.99,Appliances Connection
+Summit,"Summit 19"" wide 32 1/2"" high shallow depth built-in undercounter all-refrigerator with stainless steel door, black cabinet, and front",1910.26,1193.91,Vir Ventures
+caLefort,"caLefort 15 Inch Wine cooler, 28 Bottle Mini Wine Fridge Dual Zone Fast cooling Low Noise, Professional Wine cooler Refrigerator",1547.60,928.56,FastMedia
+Forte,Forte F15TFRESSS 28 inch 250 Series Freestanding Top Freezer Refrigerator with 14.5 cu. ft. Total Capacity; Energy Star; Reversi,1048.60,749.00,Appliances Connection
+Danby,"Danby DAR044A4BDD 21"""" Wide Energy Star Rated Compact Refrigerator with 4.4 cu. ft. Capacity  3 Shelves  Integrated Door Handle and Re",572.60,409.00,Appliances Connection
+Coors Light,Coors Light CL-90 90 ltr Compressor Fridge,781.16,334.02,"UnbeatableSale.com, Inc."
+Angel Canada,"Angel canada 60 can Wine and Beverage Refrigerator cooler - Mini Fridge with Reversible clear Front glass Door and Thermostat, L",476.17,285.70,FastMedia
+Magic Chef,Magic Chef MCAR170STE 18 Mini Refrigerator with 1.7 cu. ft. in Stainless Steel,335.99,239.99,Appliances Connection
+Costway,Costway 3.2 Cu.Ft Mini Refrigerator with Freezer Compact Fridge with 2 Reversible Door Black,344.99,229.99,factorydirectsale
+Health and Home,"health and home 3-in-1 waffle, omelet, egg waffle maker, 3 removable nonstick baking plates, upgraded 360 rotating belgian ma",111.82,89.39,Mac Marvel's
+Samsung,"Samsung RF29BB820012AA Bespoke 4-Door French Door Refrigerator (29 cu. ft.) with AutoFill Water Pitcher in White Glass, Standard Depth",3299.99,3299.88,Sears
+Samsung,"Samsung RF28T5F01SG/AA 36"" 28 cu.ft. Black Stainless Steel  French Door Refrigerator with Family Hub",,3099.99,Sears
+Kenmore,Kenmore 72319  18.1 cu. ft. Top Freezer Refrigerator with Icemaker &#8211; Black,,999.99,Sears
+Cooler Depot,Cooler Depot 72 in. W 57 cu. ft. Commercial 3-Glass Swing Door Merchandiser Refrigerator in Black,3900.00,2823.00,Cooler Depot
+Cooler Depot,Cooler Depot 60 in. W 15.2 cu. ft. Commercial Under Counter Refrigerator Table Cooler in Stainless Steel,2900.00,2203.00,Cooler Depot
