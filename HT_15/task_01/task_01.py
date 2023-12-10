@@ -14,7 +14,17 @@ def get_data(category_id):
     }
     user_agent = UserAgent()
     headers = {
+        'Accept': 'application/json, text/plain, */*',
+        'Accept-Language': 'ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3',
+        f'Referer': 'https://www.sears.com/category/b-{id}',
+        'Content-Type': 'application/json',
         'Authorization': 'SEARS',
+        'Alt-Used': 'www.sears.com',
+        'Connection': 'keep-alive',
+        'Sec-Fetch-Dest': 'empty',
+        'Sec-Fetch-Mode': 'cors',
+        'Sec-Fetch-Site': 'same-origin',
+        'Sec-GPC': '1',
         'User-Agent': user_agent.random
     }
     response = requests.get('https://www.sears.com/api/sal/v3/products/search', headers=headers, params=params)
@@ -41,8 +51,8 @@ def write_to_csv(category_id, data):
 
         for product in data.get('items', []):
             writer.writerow({
-                'BrandName': product.get('brand', ''),
-                'Name': product.get('name', ''),
+                'brandName': product.get('brand', ''),
+                'name': product.get('name', ''),
                 'Category': product.get('category', ''),
                 'FinalPrice': product.get('final_price', ''),
             })
