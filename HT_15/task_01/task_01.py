@@ -49,7 +49,7 @@ def write_to_csv(category_id, data):
 
 
 def start():
-        category_id = input("введи category id (холодильники: 1020022): ")
+        category_id = input("введи category id (1025184): ")
         data = get_data(category_id)
         write_to_csv(category_id, data)
         print('Шалость  удалась;)')
