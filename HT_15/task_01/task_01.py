@@ -56,3 +56,7 @@ def start():
 
 
 start()
+
+
+
+#https://www.sears.com/api/sal/v3/products/search?startIndex=1&endIndex=48&searchType=category&catalogId=12605&store=Sears&storeId=10153&zipCode=10101&bratRedirectInd=true&catPredictionInd=true&disableBundleInd=true&filterValueLimit=500&includeFiltersInd=true&shipOrDelivery=true&solrxcatRedirection=true&sortBy=ORIGINAL_SORT_ORDER&whiteListCacheLoad=false&eagerCacheLoad=true&slimResponseInd=true&catGroupId=1020314&seoURLPath=appliances-refrigerators-single-door-bottom-freezer-refrigerators/1020314
