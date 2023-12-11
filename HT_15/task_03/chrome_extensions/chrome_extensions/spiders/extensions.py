@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 from scrapy.crawler import CrawlerProcess
-
+from urllib.parse import urlparse
 from scrapy.http import HtmlResponse
 import csv
 
@@ -11,9 +11,12 @@ class ExtensionsSpider(scrapy.Spider):
     start_urls = ['http://https://chrome.google.com/webstore/sitemap/']
 
     def parse(self, response):
-        sitemap_links = response.css('loc::text').getall()
-        for link in sitemap_links:
-            yield scrapy.Request(link, callback=self.parse_extension_page)
+        sitemap_urls = response.xpath('//sitemap/loc/text()').getall()
+        for sitemap_url in sitemap_urls:
+            yield scrapy.Request(url=sitemap_url, callback=self.parse_sitemap)
+        # sitemap_links = response.css('loc::text').getall()
+        # for link in sitemap_links:
+        #     yield scrapy.Request(link, callback=self.parse_extension_page)
 
         # if 'sitemap' in response.url:
         #     # If it's a sitemap index, extract links to extension pages
@@ -41,6 +44,7 @@ class ExtensionsSpider(scrapy.Spider):
             'Name': extension_name,
             'Description': extension_description
         }
+
 
 process = CrawlerProcess({
     'FEED_FORMAT': 'csv',
