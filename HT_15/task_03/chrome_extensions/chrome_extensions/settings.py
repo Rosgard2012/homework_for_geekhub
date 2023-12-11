@@ -8,9 +8,6 @@
 #     https://docs.scrapy.org/en/latest/topics/settings.html
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
-import logging
-import sys
-
 
 BOT_NAME = 'chrome_extensions'
 
@@ -70,9 +67,6 @@ ROBOTSTXT_OBEY = True
 #ITEM_PIPELINES = {
 #    'chrome_extensions.pipelines.ChromeExtensionsPipeline': 300,
 #}
-ITEM_PIPELINES = {
-   "google_chrome_extensions.pipelines.GoogleChromeExtensionsPipeline": 100,
-}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
@@ -94,10 +88,3 @@ ITEM_PIPELINES = {
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
-
-# Set settings whose default value is deprecated to a future-proof value
-REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
-TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
-FEED_EXPORT_ENCODING = "utf-8"
-
-LOG_LEVEL = logging.INFO
