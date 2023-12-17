@@ -16,7 +16,7 @@ def process_data(identifier: int) -> None:
         writer.writeheader()
 
         start_index = 1
-        end_index = 100
+        end_index = 200
 
         while True:
             response = fetch_response(start_index=start_index, end_index=end_index, identifier=identifier)
@@ -64,7 +64,7 @@ def fetch_response(start_index: int, end_index: int, identifier: int) -> Respons
 
 
 def start():
-    current_directory = os.path.dirname(__file__)
+#    current_directory = os.path.dirname(__file__)
     category_id = input("Введіть ID категорії ( 1025184 , 1020022 ): ")
     process_data(int(category_id))
     print('Дані успішно збережено у файлі!')

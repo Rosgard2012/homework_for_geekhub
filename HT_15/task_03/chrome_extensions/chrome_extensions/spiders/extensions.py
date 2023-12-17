@@ -1,54 +1,42 @@
-# -*- coding: utf-8 -*-
 import scrapy
-from scrapy.crawler import CrawlerProcess
-from urllib.parse import urlparse
-from scrapy.http import HtmlResponse
+from bs4 import BeautifulSoup
 import csv
 
+
 class ExtensionsSpider(scrapy.Spider):
-    name = 'extensions'
-#    allowed_domains = ['https://chrome.google.com/webstore/sitemap']
-    start_urls = ['http://https://chrome.google.com/webstore/sitemap/']
+    name = "extensions"
+    allowed_domains = ["chrome.google.com"]
+    start_urls = ['https://chrome.google.com/webstore/sitemap']
 
     def parse(self, response):
-        sitemap_urls = response.xpath('//sitemap/loc/text()').getall()
-        for sitemap_url in sitemap_urls:
-            yield scrapy.Request(url=sitemap_url, callback=self.parse_sitemap)
-        # sitemap_links = response.css('loc::text').getall()
-        # for link in sitemap_links:
-        #     yield scrapy.Request(link, callback=self.parse_extension_page)
+        soup = BeautifulSoup(response.body, 'html.parser')
+        for sitemap_loc in soup.select('sitemap > loc'):
+            yield scrapy.Request(url=sitemap_loc.text, callback=self.parse_urls)
 
-        # if 'sitemap' in response.url:
-        #     # If it's a sitemap index, extract links to extension pages
-        #     urls = response.xpath('//sitemap/loc/text()').getall()
-        #     for url in urls:
-        #         yield scrapy.Request(url, callback=self.parse_extension_page)
-        # else:
-        #     # If it's an extension page, extract required information
-        #     extension_id = response.url.split('/')[-1]
-        #     extension_name = response.xpath('//title/text()').get()
-        #     extension_description = response.xpath('//meta[@name="description"]/@content').get()
-        #
-        #     yield {
-        #         'ID': extension_id,
-        #         'Name': extension_name,
-        #         'Description': extension_description
-        #     }
-    def parse_extension_page(self, response):
-        extension_id = response.url.split('/')[-1]
-        extension_name = response.xpath('//title/text()').get()
-        extension_description = response.xpath('//meta[@name="description"]/@content').get()
+    def parse_urls(self, response):
+        soup = BeautifulSoup(response.body, 'html.parser')
+        for url_loc in soup.select('url > loc'):
+            if "/detail" not in url_loc.text:
+                continue
+            yield scrapy.Request(url=url_loc.text, callback=self.parse_extensions)
+
+    def parse_extensions(self, response):
+        extension_id = response.css('[property="og:url"]::attr(content)').get().split('/').pop()
+        extension_name = response.css('[property="og:title"]::attr(content)').get()
+        extension_description = response.css('[property="og:description"]::attr(content)').get()
 
         yield {
-            'ID': extension_id,
-            'Name': extension_name,
-            'Description': extension_description
+            'extension_id': f'{extension_id}',
+            'extension_name': extension_name,
+            'extension_description': extension_description
         }
 
+        with open('extensions.csv', 'a', newline='', encoding='utf-8') as csvfile:
+            fieldnames = ['extension_id', 'extension_name', 'extension_description']
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writer.writerow({
+                'extension_id': extension_id,
+                'extension_name': extension_name,
+                'extension_description': extension_description
+            })
 
-process = CrawlerProcess({
-    'FEED_FORMAT': 'csv',
-    'FEED_URI': 'extensions.csv'
-})
-process.crawl(ExtensionsSpider)
-process.start()
