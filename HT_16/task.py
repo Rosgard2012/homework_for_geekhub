@@ -143,19 +143,18 @@ class CustomRobot:
 
         html_code = self.get_order_completion_html()
 
-        self.save_to_txt(html_code, status)  # Save HTML content to a text file
+        self.save_to_txt(html_code, status)
 
         c = canvas.Canvas(str(pdf_path), pagesize=letter)
         c.drawString(100, 750, "HTML Code:")
-        c.drawString(100, 730, "See attached txt file for HTML code")  # Indicate text file
+        c.drawString(100, 730, "See attached txt file for HTML code")
         c.drawString(100, 700, "Robot Image:")
 
         if self.current_image:
             image_path = self.output_directory / f"_{status}_robot.jpg"
             c.drawImage(str(image_path), 100, 500, width=200, height=200)
 
-        # Add HTML content to the PDF
-        c.setFont("Courier", 8)  # Set a fixed-width font for clearer text rendering
+        c.setFont("Courier", 8)
         c.drawString(100, 680, html_code)
 
         c.save()
