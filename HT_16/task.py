@@ -1,86 +1,78 @@
 import os
 import shutil
-import time
+import time as t
 from pathlib import Path
-from io import BytesIO
+from io import BytesIO as B
 from PIL import Image
-import requests
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.wait import WebDriverWait
+import requests as r
+from selenium import webdriver as w
+from selenium.webdriver.common.by import By as Byy
+from selenium.webdriver.support import expected_conditions as E
+from selenium.webdriver.support.wait import WebDriverWait as W
 
 
-class RobotCustomizer:
+class CustomRobot:
     def __init__(self):
-        self.output_dir = Path(__file__).resolve().parent / "images"
+        self.output_directory = Path(__file__).resolve().parent / "images"
         self.current_image = None
-        self.browser = webdriver.Chrome()
+        self.browser = w.Chrome()
         self.browser.get("https://robotsparebinindustries.com/")
         self.clean_output()
-        self.setup_output()
+        self.prepare_output()
 
     def clean_output(self):
-        if os.path.exists(self.output_dir):
-            shutil.rmtree(self.output_dir)
+        if os.path.exists(self.output_directory):
+            shutil.rmtree(self.output_directory)
 
-    def setup_output(self):
-        if not os.path.exists(self.output_dir):
-            os.makedirs(self.output_dir)
+    def prepare_output(self):
+        if not os.path.exists(self.output_directory):
+            os.makedirs(self.output_directory)
 
-    def order(self):
-        nav_links = self.browser.find_elements(By.CLASS_NAME, "nav-link")
+    def make_order(self):
+        nav_links = self.browser.find_elements(Byy.CLASS_NAME, "nav-link")
         nav_links[-1].click()
 
-    def wait_for(self, xpath):
-        return EC.visibility_of_element_located((By.XPATH, xpath))(self.browser)
+    def wait_for_element(self, xpath):
+        return E.visibility_of_element_located((Byy.XPATH, xpath))(self.browser)
 
-    def close_modal(self):
-        self.wait_for("//button[text()='OK']").click()
+    def close_popup(self):
+        self.wait_for_element("//button[text()='OK']").click()
 
-    def customize(self, data):
+    def customize_robot(self, data):
         head, body, legs, address = data
-        self.browser.find_element(By.XPATH, f"//option[@value='{head}']").click()
+        self.browser.find_element(Byy.XPATH, f"//option[@value='{head}']").click()
         self.browser.find_element(
-            By.XPATH, f"//input[@value='{body}']/ancestor::label"
+            Byy.XPATH, f"//input[@value='{body}']/ancestor::label"
         ).click()
-        self.browser.find_elements(By.CLASS_NAME, "form-control")[0].send_keys(legs)
-        self.browser.find_elements(By.CLASS_NAME, "form-control")[1].send_keys(address)
-        time.sleep(1)
+        self.browser.find_elements(Byy.CLASS_NAME, "form-control")[0].send_keys(legs)
+        self.browser.find_elements(Byy.CLASS_NAME, "form-control")[1].send_keys(address)
+        t.sleep(1)
 
-    def preview(self):
+    def preview_robot(self):
         while True:
             try:
-                self.browser.find_element(By.ID, "preview").click()
-                self.wait_for("//div[@id='robot-preview-image']")
+                self.browser.find_element(Byy.ID, "preview").click()
+                self.wait_for_element("//div[@id='robot-preview-image']")
                 break
-            except:
+            except Exception:
                 pass
 
     def place_order(self):
-
-        error_msg = (By.CSS_SELECTOR, ".alert.alert-danger")
+        error_msg = (Byy.CSS_SELECTOR, ".alert.alert-danger")
 
         while True:
             try:
-                self.browser.find_element(By.ID, "order").click()
-            except:
+                self.browser.find_element(Byy.ID, "order").click()
+            except Exception:
                 pass
 
             try:
-                WebDriverWait(self.browser, 1).until(
-                    EC.invisibility_of_element(error_msg)
-                )
+                W(self.browser, 1).until(E.invisibility_of_element(error_msg))
                 break
-            except:
+            except Exception:
                 pass
 
-    def wait_for(self, xpath):
-        return WebDriverWait(self.browser, 10).until(
-            EC.visibility_of_element_located((By.XPATH, xpath))
-        )
-
-    def get_status(self):
+    def check_status(self):
         xpath = "//p[@class='badge badge-success']"
 
         element = self.wait_for_element(xpath)
@@ -89,12 +81,12 @@ class RobotCustomizer:
         else:
             return ""
 
-    def wait_for_element(self, xpath):
-        wait = WebDriverWait(self.browser, 20)
-        element = wait.until(EC.visibility_of_element_located((By.XPATH, xpath)))
+    def get_element(self, xpath):
+        wait = W(self.browser, 20)
+        element = wait.until(E.visibility_of_element_located((Byy.XPATH, xpath)))
         return element
 
-    def generate_image(self, data):
+    def create_robot_image(self, data):
         urls = [
             f"https://robotsparebinindustries.com/{part}/{data[i]}.png"
             for i, part in enumerate(["heads", "bodies", "legs"])
@@ -102,7 +94,7 @@ class RobotCustomizer:
 
         images = []
         for url in urls:
-            img = Image.open(BytesIO(requests.get(url).content))
+            img = Image.open(B(r.get(url).content))
             img = img.resize((354, 200))
             images.append(img)
 
@@ -117,46 +109,44 @@ class RobotCustomizer:
 
         self.current_image = combined
 
-    def save_image(self):
-        status = self.get_status()
+    def save_robot_image(self):
+        status = self.check_status()
         new_filename = f"_{status}_robot.jpg"
         new_filename = new_filename.replace("_RSB-ROBO-ORDER-", "")
-        self.current_image.save(self.output_dir / new_filename)
+        self.current_image.save(self.output_directory / new_filename)
 
-    def process(self):
-        data = self.get_data("https://robotsparebinindustries.com/")
+    def process_order(self):
+        data = self.order_data("https://robotsparebinindustries.com/")
         for item in data:
-            self.close_modal()
-            self.customize(item)
-            self.preview()
-            self.generate_image(item)
+            self.close_popup()
+            self.customize_robot(item)
+            self.preview_robot()
+            self.create_robot_image(item)
             self.place_order()
-            self.save_image()
-            self.next()
+            self.save_robot_image()
+            self.proceed()
 
-    def click_make_order(self):
+    def initiate_order(self):
         try:
             while True:
-                order_button = self.driver.find_element(
-                    By.XPATH, '//button[@id="order"]'
-                )
-                self.driver.execute_script("arguments[0].click();", order_button)
+                order_button = self.browser.find_element(Byy.XPATH, '//button[@id="order"]')
+                self.browser.execute_script("arguments[0].click();", order_button)
         except Exception:
             pass
 
-    def get_data(self, url):
-        response = requests.get(url + "orders.csv")
+    def order_data(self, url):
+        response = r.get(url + "orders.csv")
         data = response.text.split("\n")[1:]
         return [d.split(",")[1:] for d in data]
 
-    def next(self):
-        self.browser.find_element(By.ID, "order-another").click()
+    def proceed(self):
+        self.browser.find_element(Byy.ID, "order-another").click()
 
     def start(self):
-        self.order()
-        self.process()
+        self.make_order()
+        self.process_order()
 
 
-bot = RobotCustomizer()
-bot.start()
-bot.browser.quit()
+robot = CustomRobot()
+robot.start()
+robot.browser.quit()
