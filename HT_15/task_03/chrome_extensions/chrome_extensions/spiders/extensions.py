@@ -24,19 +24,22 @@ class ExtensionsSpider(scrapy.Spider):
         extension_id = response.css('[property="og:url"]::attr(content)').get().split('/').pop()
         extension_name = response.css('[property="og:title"]::attr(content)').get()
         extension_description = response.css('[property="og:description"]::attr(content)').get()
+        extension_url = response.css('[property="og:url"]::attr(content)').get()
 
         yield {
             'extension_id': f'{extension_id}',
             'extension_name': extension_name,
-            'extension_description': extension_description
+            'extension_description': extension_description,
+            'extension_url': extension_url
         }
 
         with open('extensions.csv', 'a', newline='', encoding='utf-8') as csvfile:
-            fieldnames = ['extension_id', 'extension_name', 'extension_description']
+            fieldnames = ['extension_id', 'extension_name', 'extension_description', 'extension_url']
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writerow({
                 'extension_id': extension_id,
                 'extension_name': extension_name,
-                'extension_description': extension_description
+                'extension_description': extension_description,
+                'extension_url': extension_url
             })
 
