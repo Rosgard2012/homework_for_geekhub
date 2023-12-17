@@ -1,6 +1,8 @@
 import os
 import shutil
 import time as t
+from reportlab.lib.pagesizes import letter
+from reportlab.pdfgen import canvas
 from pathlib import Path
 from io import BytesIO as B
 from PIL import Image
@@ -111,9 +113,26 @@ class CustomRobot:
 
     def save_robot_image(self):
         status = self.check_status()
-        new_filename = f"_{status}_robot.jpg"
-        new_filename = new_filename.replace("_RSB-ROBO-ORDER-", "")
-        self.current_image.save(self.output_directory / new_filename)
+        # new_filename = f"_{status}_robot.jpg"
+        # new_filename = new_filename.replace("_RSB-ROBO-ORDER-", "")
+        # self.current_image.save(self.output_directory / new_filename)
+        self.current_image.save(self.output_directory / f"_{status}_robot.jpg")
+
+    def save_to_pdf(self, html_code):
+        status = self.check_status()
+        filename = f"{status}_robot.pdf"
+        pdf_path = self.output_directory / filename
+
+        c = canvas.Canvas(str(pdf_path), pagesize=letter)
+        c.drawString(100, 750, "HTML Code:")
+        c.drawString(100, 730, html_code)
+        c.drawString(100, 700, "Robot Image:")
+
+        if self.current_image:
+            image_path = self.output_directory / f"_{status}_robot.jpg"
+            c.drawImage(str(image_path), 100, 500, width=200, height=200)
+
+        c.save()
 
     def process_order(self):
         data = self.order_data("https://robotsparebinindustries.com/")
@@ -124,6 +143,8 @@ class CustomRobot:
             self.create_robot_image(item)
             self.place_order()
             self.save_robot_image()
+            html_code = self.browser.page_source
+            self.save_to_pdf(html_code)
             self.proceed()
 
     def initiate_order(self):
