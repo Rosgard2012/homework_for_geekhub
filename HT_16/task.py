@@ -118,21 +118,66 @@ class CustomRobot:
         # self.current_image.save(self.output_directory / new_filename)
         self.current_image.save(self.output_directory / f"_{status}_robot.jpg")
 
-    def save_to_pdf(self, html_code):
+    def get_order_completion_html(self):
+        try:
+            order_completion = self.browser.find_element(By.ID, "order-completion")
+            return order_completion.get_attribute("innerHTML")
+        except Exception as e:
+            print(f"Failed to retrieve order completion HTML: {str(e)}")
+            return None
+
+    def save_to_txt(self, html_code, status):
+        try:
+            filename = f"{status}_robot_html.txt"
+            txt_path = self.output_directory / filename
+
+            with open(txt_path, 'w') as txt_file:
+                txt_file.write(html_code)
+        except Exception as e:
+            print(f"Failed to save HTML to txt: {str(e)}")
+
+    def save_to_pdf(self):
         status = self.check_status()
         filename = f"{status}_robot.pdf"
         pdf_path = self.output_directory / filename
 
+        html_code = self.get_order_completion_html()
+
+        self.save_to_txt(html_code, status)  # Save HTML content to a text file
+
         c = canvas.Canvas(str(pdf_path), pagesize=letter)
         c.drawString(100, 750, "HTML Code:")
-        c.drawString(100, 730, html_code)
+        c.drawString(100, 730, "See attached txt file for HTML code")  # Indicate text file
         c.drawString(100, 700, "Robot Image:")
 
         if self.current_image:
             image_path = self.output_directory / f"_{status}_robot.jpg"
             c.drawImage(str(image_path), 100, 500, width=200, height=200)
 
+        # Add HTML content to the PDF
+        c.setFont("Courier", 8)  # Set a fixed-width font for clearer text rendering
+        c.drawString(100, 680, html_code)
+
         c.save()
+
+    # def save_to_pdf(self):
+    #     status = self.check_status()
+    #     filename = f"{status}_robot.pdf"
+    #     pdf_path = self.output_directory / filename
+    #
+    #     html_code = self.get_order_completion_html()
+    #
+    #     self.save_to_txt(html_code, status)
+    #
+    #     c = canvas.Canvas(str(pdf_path), pagesize=letter)
+    #     c.drawString(100, 750, "HTML Code:")
+    #     c.drawString(100, 730, html_code)
+    #     c.drawString(100, 700, "Robot Image:")
+    #
+    #     if self.current_image:
+    #             image_path = self.output_directory / f"_{status}_robot.jpg"
+    #             c.drawImage(str(image_path), 100, 500, width=200, height=200)
+    #     c.save()
 
     def process_order(self):
         data = self.order_data("https://robotsparebinindustries.com/")
@@ -143,8 +188,7 @@ class CustomRobot:
             self.create_robot_image(item)
             self.place_order()
             self.save_robot_image()
-            html_code = self.browser.page_source
-            self.save_to_pdf(html_code)
+            self.save_to_pdf()
             self.proceed()
 
     def initiate_order(self):
