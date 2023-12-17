@@ -7,8 +7,8 @@ from pathlib import Path
 from io import BytesIO as B
 from PIL import Image
 import requests as r
-from selenium import webdriver as w
-from selenium.webdriver.common.by import By as Byy
+from selenium import webdriver
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as E
 from selenium.webdriver.support.wait import WebDriverWait as W
 
@@ -17,7 +17,7 @@ class CustomRobot:
     def __init__(self):
         self.output_directory = Path(__file__).resolve().parent / "images"
         self.current_image = None
-        self.browser = w.Chrome()
+        self.browser = webdriver.Chrome()
         self.browser.get("https://robotsparebinindustries.com/")
         self.clean_output()
         self.prepare_output()
@@ -31,40 +31,40 @@ class CustomRobot:
             os.makedirs(self.output_directory)
 
     def make_order(self):
-        nav_links = self.browser.find_elements(Byy.CLASS_NAME, "nav-link")
+        nav_links = self.browser.find_elements(By.CLASS_NAME, "nav-link")
         nav_links[-1].click()
 
     def wait_for_element(self, xpath):
-        return E.visibility_of_element_located((Byy.XPATH, xpath))(self.browser)
+        return E.visibility_of_element_located((By.XPATH, xpath))(self.browser)
 
     def close_popup(self):
         self.wait_for_element("//button[text()='OK']").click()
 
     def customize_robot(self, data):
         head, body, legs, address = data
-        self.browser.find_element(Byy.XPATH, f"//option[@value='{head}']").click()
+        self.browser.find_element(By.XPATH, f"//option[@value='{head}']").click()
         self.browser.find_element(
-            Byy.XPATH, f"//input[@value='{body}']/ancestor::label"
+            By.XPATH, f"//input[@value='{body}']/ancestor::label"
         ).click()
-        self.browser.find_elements(Byy.CLASS_NAME, "form-control")[0].send_keys(legs)
-        self.browser.find_elements(Byy.CLASS_NAME, "form-control")[1].send_keys(address)
+        self.browser.find_elements(By.CLASS_NAME, "form-control")[0].send_keys(legs)
+        self.browser.find_elements(By.CLASS_NAME, "form-control")[1].send_keys(address)
         t.sleep(1)
 
     def preview_robot(self):
         while True:
             try:
-                self.browser.find_element(Byy.ID, "preview").click()
+                self.browser.find_element(By.ID, "preview").click()
                 self.wait_for_element("//div[@id='robot-preview-image']")
                 break
             except Exception:
                 pass
 
     def place_order(self):
-        error_msg = (Byy.CSS_SELECTOR, ".alert.alert-danger")
+        error_msg = (By.CSS_SELECTOR, ".alert.alert-danger")
 
         while True:
             try:
-                self.browser.find_element(Byy.ID, "order").click()
+                self.browser.find_element(By.ID, "order").click()
             except Exception:
                 pass
 
@@ -85,7 +85,7 @@ class CustomRobot:
 
     def get_element(self, xpath):
         wait = W(self.browser, 20)
-        element = wait.until(E.visibility_of_element_located((Byy.XPATH, xpath)))
+        element = wait.until(E.visibility_of_element_located((By.XPATH, xpath)))
         return element
 
     def create_robot_image(self, data):
@@ -150,7 +150,7 @@ class CustomRobot:
     def initiate_order(self):
         try:
             while True:
-                order_button = self.browser.find_element(Byy.XPATH, '//button[@id="order"]')
+                order_button = self.browser.find_element(By.XPATH, '//button[@id="order"]')
                 self.browser.execute_script("arguments[0].click();", order_button)
         except Exception:
             pass
@@ -161,7 +161,7 @@ class CustomRobot:
         return [d.split(",")[1:] for d in data]
 
     def proceed(self):
-        self.browser.find_element(Byy.ID, "order-another").click()
+        self.browser.find_element(By.ID, "order-another").click()
 
     def start(self):
         self.make_order()
@@ -171,4 +171,3 @@ class CustomRobot:
 robot = CustomRobot()
 robot.start()
 robot.browser.quit()
-
