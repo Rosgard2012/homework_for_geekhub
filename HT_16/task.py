@@ -15,7 +15,6 @@ from selenium.webdriver.support import expected_conditions as E
 from selenium.webdriver.support.wait import WebDriverWait as W
 
 
-
 class CustomRobot:
     def __init__(self):
         self.output_directory = Path(__file__).resolve().parent / "images"
