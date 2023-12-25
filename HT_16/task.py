@@ -1,16 +1,19 @@
 import os
 import shutil
-import time as t
-from reportlab.lib.pagesizes import letter
-from reportlab.pdfgen import canvas
-from pathlib import Path
 from io import BytesIO as B
+from pathlib import Path
 from PIL import Image
 import requests as r
+import time as t
+
+from reportlab.lib.pagesizes import letter
+from reportlab.pdfgen import canvas
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as E
 from selenium.webdriver.support.wait import WebDriverWait as W
+
 
 
 class CustomRobot:
