@@ -31,23 +31,33 @@ class CustomRobot:
             os.makedirs(self.output_directory)
 
     def make_order(self):
-        nav_links = self.browser.find_elements(By.CLASS_NAME, "nav-link")
+        nav_links = self.browser.find_elements(
+            By.CLASS_NAME, "nav-link"
+        )
         nav_links[-1].click()
 
     def wait_for_element(self, xpath):
-        return E.visibility_of_element_located((By.XPATH, xpath))(self.browser)
+        return (E.visibility_of_element_located(
+            (By.XPATH, xpath)
+        )(self.browser))
 
     def close_popup(self):
         self.wait_for_element("//button[text()='OK']").click()
 
     def customize_robot(self, data):
         head, body, legs, address = data
-        self.browser.find_element(By.XPATH, f"//option[@value='{head}']").click()
+        self.browser.find_element(
+            By.XPATH, f"//option[@value='{head}']"
+        ).click()
         self.browser.find_element(
             By.XPATH, f"//input[@value='{body}']/ancestor::label"
         ).click()
-        self.browser.find_elements(By.CLASS_NAME, "form-control")[0].send_keys(legs)
-        self.browser.find_elements(By.CLASS_NAME, "form-control")[1].send_keys(address)
+        self.browser.find_elements(
+            By.CLASS_NAME, "form-control"
+        )[0].send_keys(legs)
+        self.browser.find_elements(
+            By.CLASS_NAME, "form-control"
+        )[1].send_keys(address)
         t.sleep(1)
 
     def preview_robot(self):
@@ -69,7 +79,9 @@ class CustomRobot:
                 pass
 
             try:
-                W(self.browser, 1).until(E.invisibility_of_element(error_msg))
+                W(self.browser, 1).until(
+                    E.invisibility_of_element(error_msg)
+                )
                 break
             except Exception:
                 pass
@@ -113,14 +125,13 @@ class CustomRobot:
 
     def save_robot_image(self):
         status = self.check_status()
-        # new_filename = f"_{status}_robot.jpg"
-        # new_filename = new_filename.replace("_RSB-ROBO-ORDER-", "")
-        # self.current_image.save(self.output_directory / new_filename)
         self.current_image.save(self.output_directory / f"_{status}_robot.jpg")
 
     def get_order_completion_html(self):
         try:
-            order_completion = self.browser.find_element(By.ID, "order-completion")
+            order_completion = self.browser.find_element(
+                By.ID, "order-completion"
+            )
             return order_completion.get_attribute("innerHTML")
         except Exception as e:
             print(f"Failed to retrieve order completion HTML: {str(e)}")
@@ -158,25 +169,6 @@ class CustomRobot:
         c.drawString(100, 680, html_code)
 
         c.save()
-
-    # def save_to_pdf(self):
-    #     status = self.check_status()
-    #     filename = f"{status}_robot.pdf"
-    #     pdf_path = self.output_directory / filename
-    #
-    #     html_code = self.get_order_completion_html()
-    #
-    #     self.save_to_txt(html_code, status)
-    #
-    #     c = canvas.Canvas(str(pdf_path), pagesize=letter)
-    #     c.drawString(100, 750, "HTML Code:")
-    #     c.drawString(100, 730, html_code)
-    #     c.drawString(100, 700, "Robot Image:")
-    #
-    #     if self.current_image:
-    #             image_path = self.output_directory / f"_{status}_robot.jpg"
-    #             c.drawImage(str(image_path), 100, 500, width=200, height=200)
-    #     c.save()
 
     def process_order(self):
         data = self.order_data("https://robotsparebinindustries.com/")
