@@ -1,0 +1,29 @@
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>
+
+{% extends 'base.html' %} {% block content %}
+Products
+<table>
+    <tr>
+      <th style="width:10%">ID</th>
+      <th style="width:20%">Name</th>
+      <th style="width:10%">Price</th>
+      <th style="width:30%">Description</th>
+      <th style="width:8%">Brand</th>
+      <th style="width:22%">Link</th>
+    </tr>
+    {% for product in products %}
+        <tr>
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.brand }}</td>
+            <td><a href="{{ product.link }}" target=”_blank”>{{ product.link }}</a></td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}

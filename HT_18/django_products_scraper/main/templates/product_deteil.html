@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block content %}
+<form method="post" action="">
+  {% csrf_token %}
+  <label for="product_id">Product ID: </label>
+  <input id="product_id" type="text" name="product_id" />
+  <input type="submit" value="OK" />
+</form>
+<br>
+{% if has_result %}
+  {% if product %}
+    <b>ID</b>: {{ product.id }}<br>
+    <b>Name</b>: {{ product.name }}<br>
+    <b>Price</b>: {{ product.price }}<br>
+    <b>Description</b>: {{ product.description }}<br>
+    <b>Brand</b> : {{ product.brand }}<br>
+    <b>Link</b>: {{ product.link }}<br>
+  {% else %}
+    Not found!
+  {% endif %}
+{% endif %}
+{% endblock %}

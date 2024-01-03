@@ -1,0 +1,11 @@
+{% extends 'base.html' %} {% block content %}
+<form method="post" action="">
+  {% csrf_token %}
+  <label for="product_ids">Product's ID: </label>
+  <input id="product_ids" type="text" name="product_ids" />
+  <input type="submit" value="OK" />
+</form>
+{% if started %}
+  Scrapping started for {{product_ids}}
+{% endif %}
+{% endblock %}
